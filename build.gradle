@@ -1,0 +1,69 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE'
+    }
+}
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'groovy'
+    apply plugin: 'maven'
+    apply plugin: 'application'
+
+    group 'edu.northwestern.fsm'
+    version '1.0-SNAPSHOT'
+    mainClassName = 'edu.northwestern.fsm.service.TextService'
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        compile 'org.codehaus.groovy:groovy-all:2.4.11'
+        testCompile 'junit:junit:4.12'
+    }
+}
+
+project(':') {
+    task wrapper(type: Wrapper) { gradleVersion = '3.3' }
+    dependencies {
+        compile project(':SDH-extraction')
+    }
+}
+
+project(':SDH-extraction') {
+    mainClassName = 'edu.northwestern.fsm.app.SDHExtractor'
+
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'war'
+
+    jar {
+        manifest {
+            attributes('Main-Class': mainClassName)
+        }
+    }
+
+    dependencies {
+        providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat:1.5.2.RELEASE'
+
+        compile 'org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE'
+        compile 'org.springframework.boot:spring-boot-starter-parent:1.5.2.RELEASE'
+        compile 'org.springframework.boot:spring-boot-starter-web:1.5.2.RELEASE'
+        compile 'org.springframework.boot:spring-boot-starter-actuator:1.5.2.RELEASE'
+        compile 'org.codehaus.groovy:groovy-all:2.4.11'
+        compile 'com.opencsv:opencsv:3.9'
+        compile 'clinicalnlp:library-types:1.2-SNAPSHOT'
+        compile 'clinicalnlp:component-sentence-detector:1.2-SNAPSHOT'
+        compile 'clinicalnlp:component-groovy-dsl:1.2-SNAPSHOT'
+        compile 'clinicalnlp:component-tokenizer:1.2-SNAPSHOT'
+        compile 'clinicalnlp:component-pattern-matcher:1.2-SNAPSHOT'
+        compile 'org.apache.uima:uimaj-tools:2.10.0'
+
+        testCompile 'org.springframework.boot:spring-boot-starter-test:1.5.2.RELEASE'
+        testCompile 'clinicalnlp:library-test:1.2-SNAPSHOT'
+    }
+}

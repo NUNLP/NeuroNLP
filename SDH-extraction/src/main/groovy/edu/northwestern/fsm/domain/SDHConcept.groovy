@@ -16,11 +16,14 @@ class SDHConcept {
     Map getMap() {
         return [cite:cite, cui:cui, tui:tui, codeSystem:codeSystem, code:code, tui:tui]
     }
-    
+
     static final String CODING_SCHEME_SNOMED = 'SNOMED'
+    static final String CODING_SCHEME_LOINC = 'LOINC'
     static final String CODING_SCHEME_UCUM = 'UCUM'
-    
-    static final String SEG_FINAL_DIAGNOSIS = 'FINAL_DIAGNOSIS'
+
+    static final String SEG_FINDINGS = 'FINDINGS'
+    static final String SEG_IMPRESSION = 'IMPRESSION'
+    static final String SEG_PROVIDERS = 'PROVIDERS'
     static final String SEG_CLINICAL_HISTORY = 'CLINICAL_HISTORY'
 
     static final String TUI_NEOPLASTIC_PROCESS = 'T191'
@@ -33,6 +36,7 @@ class SDHConcept {
     static final String TUI_DIAGNOSTIC_PROCEDURE = 'T060'
     static final String TUI_PREVENTIVE_PROCEDURE = 'T061'
     static final String TUI_LAB_PROCEDURE = 'T059'
+    static final String TUI_FINDING = 'T033'
 
     // ----------------------------------------------------------------------------------------------------------------
     // GENERAL ATTRIBUTES

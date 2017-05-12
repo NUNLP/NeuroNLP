@@ -51,7 +51,7 @@ class SDHExtractionCVD {
     static void main(String[] args) {
         try {
             MainFrame frame = createMainFrame()
-            URL url = Resources.getResource('descriptors/Pipeline.xml')
+            URL url = Resources.getResource('descriptors/SDHPipeline.xml')
             File tempFile = File.createTempFile('Pipeline', '.xml')
             tempFile.write(Resources.toString(url, Charsets.UTF_8))
             tempFile.deleteOnExit()

@@ -1,6 +1,6 @@
 package edu.northwestern.fsm.service
 
-import clinicalnlp.types.NamedEntityMention
+import de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity
 import edu.northwestern.fsm.pipeline.SDHExtractionPipelineGenerator
 import org.apache.uima.analysis_engine.AnalysisEngine
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException
@@ -9,11 +9,7 @@ import org.apache.uima.jcas.JCas
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.web.support.SpringBootServletInitializer
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestMethod
-import org.springframework.web.bind.annotation.ResponseBody
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @SpringBootApplication
 @RestController
@@ -28,7 +24,7 @@ class SDHExtractionService extends SpringBootServletInitializer {
      */
 	SDHExtractionService() {
         try {
-            AggregateBuilder builder = SDHExtractionPipelineGenerator.breastPathologyPipeline()
+            AggregateBuilder builder = SDHExtractionPipelineGenerator.createSDHPipeline()
             this.engine = builder.createAggregate()
             this.jcas = engine.newJCas()
         }
@@ -52,14 +48,12 @@ class SDHExtractionService extends SpringBootServletInitializer {
 				this.jcas.reset()
 				this.jcas.setDocumentText(text)
 				this.engine.process(jcas)
-				jcas.select(type:NamedEntityMention).each { NamedEntityMention nem ->
+				jcas.select(type:NamedEntity).each { NamedEntity nem ->
 					NLPResult result = new NLPResult()
 					result.spanStart = nem.begin
 					result.spanEnd = nem.end
 					result.spannedText = nem.coveredText
-					result.mentionClass = nem.code
-					result.cite = nem.cite
-					result.assertion = nem.polarity
+					result.mentionClass = nem.value
 					results.results.add(result)
 				}
 			} catch (AnalysisEngineProcessException e) {

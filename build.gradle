@@ -18,8 +18,20 @@ allprojects {
     mainClassName = 'edu.northwestern.fsm.service.TextService'
 
     repositories {
-        mavenLocal()
         mavenCentral()
+        mavenLocal()
+        maven {
+            url 'http://zoidberg.ukp.informatik.tu-darmstadt.de/artifactory/public-releases'
+        }
+        maven {
+            url 'http://zoidberg.ukp.informatik.tu-darmstadt.de/artifactory/public-snapshots'
+        }
+        maven {
+            url 'http://zoidberg.ukp.informatik.tu-darmstadt.de/artifactory/public-model-releases-local'
+        }
+        maven {
+            url 'http://decipher.chpc.utah.edu/nexus/content/groups/public'
+        }
     }
 
     dependencies {
@@ -47,6 +59,22 @@ project(':SDH-extraction') {
         }
     }
 
+    sourceSets {
+        main {
+            java {
+                srcDirs 'src/main/java'
+                srcDirs 'src/main/groovy'
+                srcDirs 'generated-types/src'
+            }
+            resources {
+                srcDirs 'src/main/resources'
+                srcDirs 'generated-types/resources'
+            }
+        }
+    }
+
+    def dkpro$core$version = '1.9.0-SNAPSHOT'
+
     dependencies {
         providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat:1.5.2.RELEASE'
 
@@ -55,15 +83,34 @@ project(':SDH-extraction') {
         compile 'org.springframework.boot:spring-boot-starter-web:1.5.2.RELEASE'
         compile 'org.springframework.boot:spring-boot-starter-actuator:1.5.2.RELEASE'
         compile 'org.codehaus.groovy:groovy-all:2.4.11'
-        compile 'com.opencsv:opencsv:3.9'
-        compile 'clinicalnlp:library-types:1.2-SNAPSHOT'
-        compile 'clinicalnlp:component-sentence-detector:1.2-SNAPSHOT'
-        compile 'clinicalnlp:component-groovy-dsl:1.2-SNAPSHOT'
-        compile 'clinicalnlp:component-tokenizer:1.2-SNAPSHOT'
-        compile 'clinicalnlp:component-pattern-matcher:1.2-SNAPSHOT'
+        compile 'org.apache.poi:poi:3.16'
+        compile 'org.apache.poi:poi-ooxml:3.16'
+
+        compile group: "org.codehaus.groovy", name: "groovy-all", version: "2.4.11"
         compile 'org.apache.uima:uimaj-tools:2.10.0'
+//        compile 'org.apache.uima:uima-as-parent:2.9.0'
+//        compile 'org.apache.uima:aggregate-uima-as:2.9.0'
+
+        compile "clinicalnlp:groovy-dsl:2.0-SNAPSHOT"
+        compile "clinicalnlp:annotation-pattern:2.0-SNAPSHOT"
+
+        compile "de.tudarmstadt.ukp.dkpro.core:de.tudarmstadt.ukp.dkpro.core.opennlp-model-sentence-en-maxent:20120616.1"
+        compile "de.tudarmstadt.ukp.dkpro.core:de.tudarmstadt.ukp.dkpro.core:${dkpro$core$version}"
+        compile "de.tudarmstadt.ukp.dkpro.core:de.tudarmstadt.ukp.dkpro.core-asl:${dkpro$core$version}"
+        compile "de.tudarmstadt.ukp.dkpro.core:de.tudarmstadt.ukp.dkpro.core-gpl:${dkpro$core$version}"
+        compile "de.tudarmstadt.ukp.dkpro.core:de.tudarmstadt.ukp.dkpro.core.stanfordnlp-gpl:${dkpro$core$version}"
+        compile "de.tudarmstadt.ukp.dkpro.core:de.tudarmstadt.ukp.dkpro.core.opennlp-asl:${dkpro$core$version}"
+        compile "de.tudarmstadt.ukp.dkpro.core:de.tudarmstadt.ukp.dkpro.core.languagetool-asl:${dkpro$core$version}"
+        compile "de.tudarmstadt.ukp.dkpro.core:de.tudarmstadt.ukp.dkpro.core.maltparser-asl:${dkpro$core$version}"
+        compile "de.tudarmstadt.ukp.dkpro.core:de.tudarmstadt.ukp.dkpro.core.io.conll-asl:${dkpro$core$version}"
+        compile "de.tudarmstadt.ukp.dkpro.core:de.tudarmstadt.ukp.dkpro.core.io.text-asl:${dkpro$core$version}"
+        compile "de.tudarmstadt.ukp.dkpro.core:de.tudarmstadt.ukp.dkpro.core.tokit-asl:${dkpro$core$version}"
+        compile "de.tudarmstadt.ukp.dkpro.core:de.tudarmstadt.ukp.dkpro.core.jazzy-asl:${dkpro$core$version}"
+        compile "de.tudarmstadt.ukp.dkpro.core:de.tudarmstadt.ukp.dkpro.core.textnormalizer-asl:${dkpro$core$version}"
+        compile "de.tudarmstadt.ukp.dkpro.core:de.tudarmstadt.ukp.dkpro.core.castransformation-asl:${dkpro$core$version}"
+        compile "de.tudarmstadt.ukp.dkpro.core:de.tudarmstadt.ukp.dkpro.core.jazzy-asl:${dkpro$core$version}"
+        compile "de.tudarmstadt.ukp.dkpro.core:de.tudarmstadt.ukp.dkpro.core.dictionaryannotator-asl:${dkpro$core$version}"
 
         testCompile 'org.springframework.boot:spring-boot-starter-test:1.5.2.RELEASE'
-        testCompile 'clinicalnlp:library-test:1.2-SNAPSHOT'
     }
 }

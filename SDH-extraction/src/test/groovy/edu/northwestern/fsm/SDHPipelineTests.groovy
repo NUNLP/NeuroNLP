@@ -1,5 +1,6 @@
 package edu.northwestern.fsm
 
+import edu.northwestern.fsm.pipeline.SDHExtractionPipelineGenerator
 import groovy.util.logging.Log4j
 import org.apache.log4j.Level
 import org.apache.log4j.PropertyConfigurator
@@ -15,16 +16,16 @@ import org.junit.BeforeClass
 import org.junit.Test
 
 @Log4j
-class PathExtractionPipelineTests {
+class SDHExtractionPipelineTests {
     static AnalysisEngine engine
 
     @BeforeClass
     static void configureLogger() {
-        def config = new ConfigSlurper().parse(PathExtractionPipelineTests.getResource('/log-config.groovy').text)
+        def config = new ConfigSlurper().parse(SDHExtractionPipelineTests.getResource('/log-config.groovy').text)
         PropertyConfigurator.configure(config.toProperties())
-        AggregateBuilder builder = PathExtractionPipelineGenerator.breastPathologyPipeline()
+        AggregateBuilder builder = SDHExtractionPipelineGenerator.sdhPipeline()
         AnalysisEngineDescription desc = builder.createAggregateDescription()
-        PrintWriter writer = new PrintWriter(new File('src/main/resources/breast/Pipeline.xml'))
+        PrintWriter writer = new PrintWriter(new File('src/main/resources/descriptors/SDHPipeline.xml'))
         desc.toXML(writer)
         writer.close()
     }
@@ -37,7 +38,7 @@ class PathExtractionPipelineTests {
     @BeforeClass static void createPipeline() throws Exception {
         AnalysisEngineDescription desc = UIMAFramework
             .getXMLParser().parseAnalysisEngineDescription(new XMLInputSource(
-            PathExtractionPipelineTests.getResource("/descriptors/Pipeline.xml")))
+            SDHExtractionPipelineTests.getResource("/descriptors/SDHPipeline.xml")))
         this.engine = AnalysisEngineFactory.createEngine(desc)
         assert this.engine != null
     }

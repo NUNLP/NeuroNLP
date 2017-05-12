@@ -1,0 +1,147 @@
+Exam Number:  1111111111                        Report Status:  Final
+
+Type:  CTBrW/OC
+
+Date/Time:  07/07/2007 17:07
+
+Exam Code:  CTBRWO
+
+Ordering Provider:  Who, Dr. MD
+
+
+
+HISTORY:
+
+     ALTERED MENTAL STATUS, ASSESS FOR HEMORRHAGE -
+
+
+
+
+
+REPORT     Head CT without contrast using the Routine protocol.
+
+
+
+     HISTORY: As provided in header.
+
+
+
+     COMPARISON: Head CT performed at an outside hospital earlier the same
+
+     day at 12:00 p.m.
+
+
+
+     FINDINGS:
+
+
+
+     There is stable appearance of acute left frontotemporoparietal
+
+     subdural hematoma measuring up to 1 cm in maximal thickness over the
+
+     left frontal lobe.  This results in rightward midline shift by 6 mm
+
+     at the level of the septum pellucidum, also stable since prior study.
+
+     Hematoma is noted to extend along the tentorial leaflet and left
+
+     aspect of the falx. There is a small amount of intraventricular blood
+
+     in the fourth ventricle and the occipital horns of both lateral
+
+     ventricles.
+
+
+
+     There are several small areas of hemorrhagic contusion with
+
+     surrounding edema in the anteroinferior left temporal lobe.
+
+
+
+     There is no evidence of acute territorial infarct.  Although there is
+
+     mass effect on the left lateral ventricle, the ventricular system is
+
+     unremarkable in size without evidence of hydrocephalus or entrapment.
+
+
+
+
+
+     There is fluid within the sphenoid sinuses and scattered ethmoid air
+
+     cells. The visualized paranasal sinuses and mastoid air cells are
+
+     otherwise well aerated.
+
+
+
+     There is a right frontoparietal subgaleal hematoma and soft tissue
+
+     swelling.  The calvarium appears intact.  Subcutaneous air is noted
+
+     in the right masticator space anterior to the right masseter and
+
+     temporalis muscles.  No fracture is identified, although the study
+
+     was not performed as a dedicated facial CT.  Irregularity in the
+
+     right sphenoid ala (bone window image 37) does not appear contiguous
+
+     through the cortex and likely represents a nutrient foramen or
+
+     sutural variant.
+
+
+
+     IMPRESSION:
+
+
+
+     Acute left frontotemporoparietal subdural hematoma measuring up to 1
+
+     cm maximal thickness with resultant rightward 6-mm midline shift,
+
+     stable since prior study.
+
+
+
+     Anterior left temporal lobe hemorrhagic contusions also stable since
+
+     prior study.
+
+
+
+     Right frontoparietal subgaleal hematoma and soft tissue swelling.
+
+
+
+     Subcutaneous air in the right masticator space indicative of soft
+
+     tissue injury.  No definite evidence of bony injury, however if there
+
+     is suspicion of osseous facial injury, dedicated facial CT may be
+
+     obtained as clinically indicated.
+
+
+
+     Results discussed with Dr. Who at 4:45 p.m. on 7/7/07.
+
+
+
+
+
+PROVIDERS:                           SIGNATURES:
+
+     Somebody, Guy MD                   Somebody, Guy MD
+
+
+
+
+
+
+
+[report_end]

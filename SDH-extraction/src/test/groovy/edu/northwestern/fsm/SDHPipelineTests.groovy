@@ -20,10 +20,10 @@ class SDHExtractionPipelineTests {
     static AnalysisEngine engine
 
     @BeforeClass
-    static void configureLogger() {
+    static void setupClass() {
         def config = new ConfigSlurper().parse(SDHExtractionPipelineTests.getResource('/log-config.groovy').text)
         PropertyConfigurator.configure(config.toProperties())
-        AggregateBuilder builder = SDHExtractionPipelineGenerator.sdhPipeline()
+        AggregateBuilder builder = SDHExtractionPipelineGenerator.createSDHPipeline()
         AnalysisEngineDescription desc = builder.createAggregateDescription()
         PrintWriter writer = new PrintWriter(new File('src/main/resources/descriptors/SDHPipeline.xml'))
         desc.toXML(writer)
@@ -44,7 +44,7 @@ class SDHExtractionPipelineTests {
     }
 
     @Test void smokeTest() {
-        File dir = new File('src/test/resources/data')
+        File dir = new File('src/test/resources/data/input')
         dir.listFiles().each {
             JCas jcas = this.engine.newJCas()
             jcas.setDocumentText(it.text)

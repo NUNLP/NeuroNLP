@@ -1,10 +1,11 @@
 package edu.northwestern.fsm.pipeline
 
 import clinicalnlp.dsl.ScriptAnnotator
+import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpPosTagger
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpSegmenter
+import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordParser
 import org.apache.uima.analysis_engine.AnalysisEngineDescription
 import org.apache.uima.fit.factory.AggregateBuilder
-import org.apache.uima.fit.factory.AnalysisEngineFactory
 
 import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription
 
@@ -29,6 +30,15 @@ class SDHExtractionPipelineGenerator {
                 "classpath:/models/sd-med-model.zip",
                 OpenNlpSegmenter.PARAM_TOKENIZATION_MODEL_LOCATION,
                 "classpath:/models/en-token.bin")
+            )
+            add(createEngineDescription(OpenNlpPosTagger,
+                OpenNlpPosTagger.PARAM_MODEL_LOCATION,
+                "classpath:/models/mayo-pos.zip")
+            )
+            add(
+                createEngineDescription(StanfordParser,
+                StanfordParser.PARAM_MODEL_LOCATION,
+                'classpath:/edu/stanford/nlp/models/lexparser/englishRNN.ser.gz')
             )
         }
         return builder

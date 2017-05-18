@@ -7,10 +7,10 @@ import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordParser
 import org.apache.uima.analysis_engine.AnalysisEngineDescription
 import org.apache.uima.fit.factory.AggregateBuilder
 import org.apache.uima.fit.factory.TypeSystemDescriptionFactory
-import org.apache.uima.pear.util.UIMAUtil
 import org.apache.uima.resource.metadata.TypeSystemDescription
 
 import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription
+import static org.apache.uima.fit.factory.FlowControllerFactory.createFlowControllerDescription
 
 /**
  * Static methods for generating pathology concept extraction NLP pipeline
@@ -25,6 +25,7 @@ class SDHExtractionPipelineGenerator {
     static AggregateBuilder createSDHPipeline() {
         AggregateBuilder builder = new AggregateBuilder()
         builder.with {
+            setFlowControllerDescription(createFlowControllerDescription(SDHFlowController))
             add(createEngineDescription(ScriptAnnotator,
                 ScriptAnnotator.PARAM_SCRIPT_FILE, 'scripts/segmenter.groovy')
             )

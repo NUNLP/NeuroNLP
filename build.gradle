@@ -118,5 +118,6 @@ project(':SDH-extraction') {
         testCompile 'org.apache.uima:uimaj-component-test-util:2.10.0'
         testCompile 'org.apache.uima:uimaj-tools:2.10.0'
         testCompile 'org.apache.uima:uimaj-test-util:2.10.0'
+        testCompile 'org.apache.uima:uimaj-examples:2.10.0'
     }
 }

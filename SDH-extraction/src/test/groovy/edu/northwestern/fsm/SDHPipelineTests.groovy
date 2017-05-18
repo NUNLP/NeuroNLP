@@ -17,7 +17,6 @@ import org.apache.uima.fit.factory.TypeSystemDescriptionFactory
 import org.apache.uima.jcas.JCas
 import org.apache.uima.jcas.tcas.Annotation_Type
 import org.apache.uima.json.JsonCasSerializer
-import org.apache.uima.resource.metadata.TypeDescription
 import org.apache.uima.resource.metadata.TypeSystemDescription
 import org.apache.uima.util.XMLInputSource
 import org.junit.Before

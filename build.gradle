@@ -94,6 +94,9 @@ project(':SDH-extraction') {
         compile "clinicalnlp:groovy-dsl:2.0-SNAPSHOT"
         compile "clinicalnlp:annotation-pattern:2.0-SNAPSHOT"
 
+        compile 'org.apache.uima:uimaj-json:2.10.0'
+        compile 'org.apache.uima:uimaj-document-annotation:2.10.0'
+
         compile "de.tudarmstadt.ukp.dkpro.core:de.tudarmstadt.ukp.dkpro.core.opennlp-model-sentence-en-maxent:20120616.1"
         compile "de.tudarmstadt.ukp.dkpro.core:de.tudarmstadt.ukp.dkpro.core:${dkpro$core$version}"
         compile "de.tudarmstadt.ukp.dkpro.core:de.tudarmstadt.ukp.dkpro.core-asl:${dkpro$core$version}"
@@ -112,5 +115,8 @@ project(':SDH-extraction') {
         compile "de.tudarmstadt.ukp.dkpro.core:de.tudarmstadt.ukp.dkpro.core.dictionaryannotator-asl:${dkpro$core$version}"
 
         testCompile 'org.springframework.boot:spring-boot-starter-test:1.5.2.RELEASE'
+        testCompile 'org.apache.uima:uimaj-component-test-util:2.10.0'
+        testCompile 'org.apache.uima:uimaj-tools:2.10.0'
+        testCompile 'org.apache.uima:uimaj-test-util:2.10.0'
     }
 }

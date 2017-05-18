@@ -6,6 +6,9 @@ import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpSegmenter
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordParser
 import org.apache.uima.analysis_engine.AnalysisEngineDescription
 import org.apache.uima.fit.factory.AggregateBuilder
+import org.apache.uima.fit.factory.TypeSystemDescriptionFactory
+import org.apache.uima.pear.util.UIMAUtil
+import org.apache.uima.resource.metadata.TypeSystemDescription
 
 import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription
 
@@ -50,9 +53,14 @@ class SDHExtractionPipelineGenerator {
      */
     static void main(args) {
         AggregateBuilder builder = createSDHPipeline()
-        AnalysisEngineDescription desc = builder.createAggregateDescription()
+        AnalysisEngineDescription engineDescription = builder.createAggregateDescription()
         PrintWriter writer = new PrintWriter(new File('src/main/resources/descriptors/SDHPipeline.xml'))
-        desc.toXML(writer)
+        engineDescription.toXML(writer)
+        writer.close()
+
+        TypeSystemDescription typeSystemDescription = TypeSystemDescriptionFactory.createTypeSystemDescription()
+        writer = new PrintWriter(new File('src/main/resources/descriptors/SDHTypeSystem.xml'))
+        typeSystemDescription.toXML(writer)
         writer.close()
     }
 }

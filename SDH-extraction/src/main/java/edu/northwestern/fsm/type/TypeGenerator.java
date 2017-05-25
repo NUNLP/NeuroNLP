@@ -41,10 +41,13 @@ public class TypeGenerator {
             "Section annotation",
             Div.class.getCanonicalName());
 
-        TypeDescription disorderType = types.addType("edu.northwestern.fsm.type.Disorder",
+        TypeDescription disorderType = types.addType("edu.northwestern.fsm.type.SDH",
             "Disorder annotation",
             NamedEntity.class.getCanonicalName());
-
+        disorderType.addFeature("side", "", "uima.cas.String");
+        disorderType.addFeature("thickness", "", "uima.cas.Integer");
+        disorderType.addFeature("convexity", "", "uima.cas.Boolean");
+        disorderType.addFeature("shift", "", "uima.cas.Integer");
 
         TypeDescription measureType = types.addType("edu.northwestern.fsm.type.Measure",
             "Measure annotation",

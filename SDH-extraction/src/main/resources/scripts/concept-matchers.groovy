@@ -1,4 +1,4 @@
-import edu.northwestern.fsm.type.Disorder
+import edu.northwestern.fsm.type.SDH
 import org.apache.uima.jcas.tcas.DocumentAnnotation
 
 import static edu.northwestern.fsm.domain.SDHConcept.getSUBDURAL_HEMATOMA
@@ -11,6 +11,6 @@ createConceptMentions(
     patterns:patterns,
     jcas:jcas,
     searchSet:jcas.select(type:DocumentAnnotation),
-    type:Disorder,
+    type:SDH,
     identifier:SUBDURAL_HEMATOMA.code
 )

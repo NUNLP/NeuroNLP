@@ -29,7 +29,8 @@ class SDHExtractionPipelineGenerator {
         builder.with {
             setFlowControllerDescription(createFlowControllerDescription(FixedFlowController))
             add(createEngineDescription(ScriptAnnotator,
-                ScriptAnnotator.PARAM_SCRIPT_FILE, 'scripts/segmenter.groovy')
+                ScriptAnnotator.PARAM_BINDING_SCRIPT_FILE, 'scripts/segment-patterns.groovy',
+                ScriptAnnotator.PARAM_SCRIPT_FILE, 'scripts/segment-matchers.groovy')
             )
             add(createEngineDescription(OpenNlpSegmenter,
                 OpenNlpSegmenter.PARAM_STRICT_ZONING, true,

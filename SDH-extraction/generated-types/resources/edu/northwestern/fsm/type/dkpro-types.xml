@@ -10,29 +10,15 @@
             <name>edu.northwestern.fsm.type.Section</name>
             <description>Section annotation</description>
             <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Div</supertypeName>
-            <features>
-                <featureDescription>
-                    <name>divType</name>
-                    <description>Section type</description>
-                    <rangeTypeName>uima.cas.String</rangeTypeName>
-                </featureDescription>
-            </features>
-        </typeDescription>
-        <typeDescription>
-            <name>edu.northwestern.fsm.type.DictMatch</name>
-            <description>Dictionary match annotation</description>
-            <supertypeName>uima.tcas.Annotation</supertypeName>
-            <features>
-                <featureDescription>
-                    <name>code</name>
-                    <description>Code</description>
-                    <rangeTypeName>uima.cas.String</rangeTypeName>
-                </featureDescription>
-            </features>
         </typeDescription>
         <typeDescription>
             <name>edu.northwestern.fsm.type.Disorder</name>
             <description>Disorder annotation</description>
+            <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity</supertypeName>
+        </typeDescription>
+        <typeDescription>
+            <name>edu.northwestern.fsm.type.Measure</name>
+            <description>Measure annotation</description>
             <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity</supertypeName>
         </typeDescription>
     </types>

@@ -1,6 +1,6 @@
 
 
-/* First created by JCasGen Wed May 24 21:04:28 CDT 2017 */
+/* First created by JCasGen Thu May 25 09:33:54 CDT 2017 */
 package edu.northwestern.fsm.type;
 
 import org.apache.uima.jcas.JCas; 
@@ -11,7 +11,7 @@ import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Div;
 
 
 /** Section annotation
- * Updated by JCasGen Wed May 24 21:04:28 CDT 2017
+ * Updated by JCasGen Thu May 25 09:33:54 CDT 2017
  * XML source: /Users/willthompson/Code/northwestern/NeuroNLP/SDH-extraction/generated-types/resources/edu/northwestern/fsm/type/dkpro-types.xml
  * @generated */
 public class Section extends Div {
@@ -74,28 +74,6 @@ public class Section extends Div {
    */
   private void readObject() {/*default - does nothing empty block */}
      
- 
-    
-  //*--------------*
-  //* Feature: divType
-
-  /** getter for divType - gets Section type
-   * @generated
-   * @return value of the feature 
-   */
-  public String getDivType() {
-    if (Section_Type.featOkTst && ((Section_Type)jcasType).casFeat_divType == null)
-      jcasType.jcas.throwFeatMissing("divType", "edu.northwestern.fsm.type.Section");
-    return jcasType.ll_cas.ll_getStringValue(addr, ((Section_Type)jcasType).casFeatCode_divType);}
-    
-  /** setter for divType - sets Section type 
-   * @generated
-   * @param v value to set into the feature 
-   */
-  public void setDivType(String v) {
-    if (Section_Type.featOkTst && ((Section_Type)jcasType).casFeat_divType == null)
-      jcasType.jcas.throwFeatMissing("divType", "edu.northwestern.fsm.type.Section");
-    jcasType.ll_cas.ll_setStringValue(addr, ((Section_Type)jcasType).casFeatCode_divType, v);}    
-  }
+}
 
     

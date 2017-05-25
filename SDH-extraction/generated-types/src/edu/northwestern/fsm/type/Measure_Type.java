@@ -8,17 +8,17 @@ import org.apache.uima.cas.impl.TypeImpl;
 import org.apache.uima.cas.Type;
 import de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity_Type;
 
-/** Disorder annotation
+/** Measure annotation
  * Updated by JCasGen Thu May 25 09:33:54 CDT 2017
  * @generated */
-public class Disorder_Type extends NamedEntity_Type {
+public class Measure_Type extends NamedEntity_Type {
   /** @generated */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = Disorder.typeIndexID;
+  public final static int typeIndexID = Measure.typeIndexID;
   /** @generated 
      @modifiable */
   @SuppressWarnings ("hiding")
-  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("edu.northwestern.fsm.type.Disorder");
+  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("edu.northwestern.fsm.type.Measure");
 
 
 
@@ -27,7 +27,7 @@ public class Disorder_Type extends NamedEntity_Type {
 	 * @param jcas JCas
 	 * @param casType Type 
 	 */
-  public Disorder_Type(JCas jcas, Type casType) {
+  public Measure_Type(JCas jcas, Type casType) {
     super(jcas, casType);
     casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());
 

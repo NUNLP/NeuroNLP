@@ -1,6 +1,6 @@
 
 
-/* First created by JCasGen Wed May 24 21:04:28 CDT 2017 */
+/* First created by JCasGen Thu May 25 09:33:54 CDT 2017 */
 package edu.northwestern.fsm.type;
 
 import org.apache.uima.jcas.JCas; 
@@ -11,7 +11,7 @@ import de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity;
 
 
 /** Disorder annotation
- * Updated by JCasGen Wed May 24 21:04:28 CDT 2017
+ * Updated by JCasGen Thu May 25 09:33:54 CDT 2017
  * XML source: /Users/willthompson/Code/northwestern/NeuroNLP/SDH-extraction/generated-types/resources/edu/northwestern/fsm/type/dkpro-types.xml
  * @generated */
 public class Disorder extends NamedEntity {

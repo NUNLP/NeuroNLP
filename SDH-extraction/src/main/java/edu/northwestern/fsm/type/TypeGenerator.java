@@ -40,15 +40,14 @@ public class TypeGenerator {
         TypeDescription sectionType = types.addType("edu.northwestern.fsm.type.Section",
             "Section annotation",
             Div.class.getCanonicalName());
-        sectionType.addFeature("divType", "Section type", "uima.cas.String");
-
-        TypeDescription dictType = types.addType("edu.northwestern.fsm.type.DictMatch",
-            "Dictionary match annotation",
-            "uima.tcas.Annotation");
-        dictType.addFeature("code", "Code", "uima.cas.String");
 
         TypeDescription disorderType = types.addType("edu.northwestern.fsm.type.Disorder",
             "Disorder annotation",
+            NamedEntity.class.getCanonicalName());
+
+
+        TypeDescription measureType = types.addType("edu.northwestern.fsm.type.Measure",
+            "Measure annotation",
             NamedEntity.class.getCanonicalName());
 
         // generate an XML descriptor

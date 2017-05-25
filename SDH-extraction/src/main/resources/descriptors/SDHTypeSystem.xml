@@ -1689,9 +1689,14 @@ relational adjectives, such as "proud" (with arguments who and of what).
             </features>
         </typeDescription>
         <typeDescription>
+            <name>edu.northwestern.fsm.type.Disorder</name>
+            <description>Disorder annotation</description>
+            <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity</supertypeName>
+        </typeDescription>
+        <typeDescription>
             <name>edu.northwestern.fsm.type.Section</name>
             <description>Section annotation</description>
-            <supertypeName>uima.tcas.Annotation</supertypeName>
+            <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Div</supertypeName>
             <features>
                 <featureDescription>
                     <name>divType</name>

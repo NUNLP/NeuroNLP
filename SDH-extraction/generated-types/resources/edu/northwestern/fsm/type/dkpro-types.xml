@@ -3,12 +3,13 @@
 <typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
     <imports>
         <import name="desc/type/NamedEntity"/>
+        <import name="desc/type/LexicalUnits"/>
     </imports>
     <types>
         <typeDescription>
             <name>edu.northwestern.fsm.type.Section</name>
             <description>Section annotation</description>
-            <supertypeName>uima.tcas.Annotation</supertypeName>
+            <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Div</supertypeName>
             <features>
                 <featureDescription>
                     <name>divType</name>
@@ -28,6 +29,11 @@
                     <rangeTypeName>uima.cas.String</rangeTypeName>
                 </featureDescription>
             </features>
+        </typeDescription>
+        <typeDescription>
+            <name>edu.northwestern.fsm.type.Disorder</name>
+            <description>Disorder annotation</description>
+            <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity</supertypeName>
         </typeDescription>
     </types>
 </typeSystemDescription>

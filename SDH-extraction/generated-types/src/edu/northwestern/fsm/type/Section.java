@@ -1,20 +1,20 @@
 
 
-/* First created by JCasGen Fri May 12 08:41:03 CDT 2017 */
+/* First created by JCasGen Wed May 24 21:04:28 CDT 2017 */
 package edu.northwestern.fsm.type;
 
 import org.apache.uima.jcas.JCas; 
 import org.apache.uima.jcas.JCasRegistry;
 import org.apache.uima.jcas.cas.TOP_Type;
 
-import org.apache.uima.jcas.tcas.Annotation;
+import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Div;
 
 
 /** Section annotation
- * Updated by JCasGen Fri May 12 08:41:03 CDT 2017
+ * Updated by JCasGen Wed May 24 21:04:28 CDT 2017
  * XML source: /Users/willthompson/Code/northwestern/NeuroNLP/SDH-extraction/generated-types/resources/edu/northwestern/fsm/type/dkpro-types.xml
  * @generated */
-public class Section extends Annotation {
+public class Section extends Div {
   /** @generated
    * @ordered 
    */

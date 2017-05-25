@@ -1,5 +1,5 @@
 
-/* First created by JCasGen Fri May 12 08:41:03 CDT 2017 */
+/* First created by JCasGen Wed May 24 21:04:28 CDT 2017 */
 package edu.northwestern.fsm.type;
 
 import org.apache.uima.jcas.JCas;
@@ -11,7 +11,7 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.tcas.Annotation_Type;
 
 /** Dictionary match annotation
- * Updated by JCasGen Fri May 12 08:41:03 CDT 2017
+ * Updated by JCasGen Wed May 24 21:04:28 CDT 2017
  * @generated */
 public class DictMatch_Type extends Annotation_Type {
   /** @generated */

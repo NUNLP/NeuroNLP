@@ -1,6 +1,7 @@
 package edu.northwestern.fsm.type;
 
 import de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity;
+import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Div;
 import org.apache.uima.resource.metadata.Import;
 import org.apache.uima.resource.metadata.TypeDescription;
 import org.apache.uima.resource.metadata.TypeSystemDescription;
@@ -30,18 +31,25 @@ public class TypeGenerator {
         TypeSystemDescription types = new TypeSystemDescription_impl();
         Import nerImport = new Import_impl();
         nerImport.setName("desc/type/NamedEntity");
-        Import[] imports = new Import[] { nerImport };
+        Import divImport = new Import_impl();
+        divImport.setName("desc/type/LexicalUnits");
+
+        Import[] imports = new Import[] { nerImport, divImport };
         types.setImports(imports);
 
         TypeDescription sectionType = types.addType("edu.northwestern.fsm.type.Section",
             "Section annotation",
-            "uima.tcas.Annotation");
+            Div.class.getCanonicalName());
         sectionType.addFeature("divType", "Section type", "uima.cas.String");
 
         TypeDescription dictType = types.addType("edu.northwestern.fsm.type.DictMatch",
             "Dictionary match annotation",
             "uima.tcas.Annotation");
         dictType.addFeature("code", "Code", "uima.cas.String");
+
+        TypeDescription disorderType = types.addType("edu.northwestern.fsm.type.Disorder",
+            "Disorder annotation",
+            NamedEntity.class.getCanonicalName());
 
         // generate an XML descriptor
         FileWriter writer = new FileWriter(new File(resDir.getCanonicalPath() + "/dkpro-types.xml"));

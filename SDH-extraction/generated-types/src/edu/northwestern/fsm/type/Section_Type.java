@@ -1,5 +1,5 @@
 
-/* First created by JCasGen Fri May 12 08:41:03 CDT 2017 */
+/* First created by JCasGen Wed May 24 21:04:28 CDT 2017 */
 package edu.northwestern.fsm.type;
 
 import org.apache.uima.jcas.JCas;
@@ -8,12 +8,12 @@ import org.apache.uima.cas.impl.TypeImpl;
 import org.apache.uima.cas.Type;
 import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
-import org.apache.uima.jcas.tcas.Annotation_Type;
+import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Div_Type;
 
 /** Section annotation
- * Updated by JCasGen Fri May 12 08:41:03 CDT 2017
+ * Updated by JCasGen Wed May 24 21:04:28 CDT 2017
  * @generated */
-public class Section_Type extends Annotation_Type {
+public class Section_Type extends Div_Type {
   /** @generated */
   @SuppressWarnings ("hiding")
   public final static int typeIndexID = Section.typeIndexID;

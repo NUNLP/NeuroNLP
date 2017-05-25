@@ -26,7 +26,6 @@ class SDHConcept {
     static final String SEG_PROVIDERS = 'PROVIDERS'
     static final String SEG_CLINICAL_HISTORY = 'CLINICAL_HISTORY'
 
-    static final String TUI_NEOPLASTIC_PROCESS = 'T191'
     static final String TUI_DISEASE_OR_SYNDROME = 'T047'
     static final String TUI_BODY_PART = 'T023'
     static final String TUI_CLASSIFICAION = 'T185'
@@ -37,6 +36,7 @@ class SDHConcept {
     static final String TUI_PREVENTIVE_PROCEDURE = 'T061'
     static final String TUI_LAB_PROCEDURE = 'T059'
     static final String TUI_FINDING = 'T033'
+    static final String TUI_PATHOLOGIC_FUNCTION = 'T046'
 
     // ----------------------------------------------------------------------------------------------------------------
     // GENERAL ATTRIBUTES
@@ -47,5 +47,10 @@ class SDHConcept {
     static final SDHConcept POSSIBLE_VALUE = new SDHConcept(cite:'Possible', codeSystem:CODING_SCHEME_SNOMED, code:'371930009', cui:'C0332149', tui:TUI_QUALITATIVE_CONCEPT)
     static final SDHConcept GRADE = new SDHConcept(cite:'Grade', codeSystem:CODING_SCHEME_SNOMED, code:'103421006', cui:'C0441800', tui:TUI_CLASSIFICAION)
     static final SDHConcept PERCENTAGE = new SDHConcept(cite:'Percentage unit', codeSystem:CODING_SCHEME_SNOMED, code:'415067009', cui:'C1532336', tui:TUI_QUANTITATIVE_CONCEPT)
+
+    // ----------------------------------------------------------------------------------------------------------------
+    // CONCEPTS
+    // ----------------------------------------------------------------------------------------------------------------
+    static final SDHConcept SUBDURAL_HEMATOMA = new SDHConcept(cite:'Subdural_Hematoma', codeSystem:CODING_SCHEME_SNOMED, code:'95453001', cui:'C0018946', tui:TUI_PATHOLOGIC_FUNCTION)
 
 }

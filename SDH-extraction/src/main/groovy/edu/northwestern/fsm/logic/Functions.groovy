@@ -1,6 +1,8 @@
 package edu.northwestern.fsm.logic
 
+import clinicalnlp.dsl.DSL
 import de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity
+import org.apache.uima.fit.util.JCasUtil
 import org.apache.uima.jcas.JCas
 import org.apache.uima.jcas.tcas.Annotation
 
@@ -18,8 +20,8 @@ class Functions {
         Map patterns = args.patterns
         Collection searchSet = args.searchSet
         Class type = args.type
-        Boolean longestMatch = args.longestMatch
         Integer group = args.group ?: 0
+        String identifier = args.identifier
 
         List<? extends NamedEntity> mentions = []
         searchSet.each { Annotation ann ->
@@ -31,21 +33,11 @@ class Functions {
                         type:type,
                         begin:(matcher.start(group) + ann.begin),
                         end:(matcher.end(group) + ann.begin),
-                        cite:vals.cite,
-                        code:vals.code,
-                        codeSystem:vals.codeSystem,
-                        semClass:vals.tui,
+                        identifier:identifier
                     )
                     mentions << mention
                 }
             }
-        }
-
-        if (longestMatch) {
-            jcas.removeCovered(
-                anns:jcas.select(type:type),
-                types:[type]
-            )
         }
 
         return mentions

@@ -7,19 +7,19 @@ import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.JCasRegistry;
 import org.apache.uima.jcas.cas.TOP_Type;
 
-import org.apache.uima.jcas.tcas.Annotation;
+import de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity;
 
 
-/** Dictionary match annotation
+/** Disorder annotation
  * Updated by JCasGen Wed May 24 21:04:28 CDT 2017
  * XML source: /Users/willthompson/Code/northwestern/NeuroNLP/SDH-extraction/generated-types/resources/edu/northwestern/fsm/type/dkpro-types.xml
  * @generated */
-public class DictMatch extends Annotation {
+public class Disorder extends NamedEntity {
   /** @generated
    * @ordered 
    */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = JCasRegistry.register(DictMatch.class);
+  public final static int typeIndexID = JCasRegistry.register(Disorder.class);
   /** @generated
    * @ordered 
    */
@@ -33,14 +33,14 @@ public class DictMatch extends Annotation {
  
   /** Never called.  Disable default constructor
    * @generated */
-  protected DictMatch() {/* intentionally empty block */}
+  protected Disorder() {/* intentionally empty block */}
     
   /** Internal - constructor used by generator 
    * @generated
    * @param addr low level Feature Structure reference
    * @param type the type of this Feature Structure 
    */
-  public DictMatch(int addr, TOP_Type type) {
+  public Disorder(int addr, TOP_Type type) {
     super(addr, type);
     readObject();
   }
@@ -48,7 +48,7 @@ public class DictMatch extends Annotation {
   /** @generated
    * @param jcas JCas to which this Feature Structure belongs 
    */
-  public DictMatch(JCas jcas) {
+  public Disorder(JCas jcas) {
     super(jcas);
     readObject();   
   } 
@@ -58,7 +58,7 @@ public class DictMatch extends Annotation {
    * @param begin offset to the begin spot in the SofA
    * @param end offset to the end spot in the SofA 
   */  
-  public DictMatch(JCas jcas, int begin, int end) {
+  public Disorder(JCas jcas, int begin, int end) {
     super(jcas);
     setBegin(begin);
     setEnd(end);
@@ -74,28 +74,6 @@ public class DictMatch extends Annotation {
    */
   private void readObject() {/*default - does nothing empty block */}
      
- 
-    
-  //*--------------*
-  //* Feature: code
-
-  /** getter for code - gets Code
-   * @generated
-   * @return value of the feature 
-   */
-  public String getCode() {
-    if (DictMatch_Type.featOkTst && ((DictMatch_Type)jcasType).casFeat_code == null)
-      jcasType.jcas.throwFeatMissing("code", "edu.northwestern.fsm.type.DictMatch");
-    return jcasType.ll_cas.ll_getStringValue(addr, ((DictMatch_Type)jcasType).casFeatCode_code);}
-    
-  /** setter for code - sets Code 
-   * @generated
-   * @param v value to set into the feature 
-   */
-  public void setCode(String v) {
-    if (DictMatch_Type.featOkTst && ((DictMatch_Type)jcasType).casFeat_code == null)
-      jcasType.jcas.throwFeatMissing("code", "edu.northwestern.fsm.type.DictMatch");
-    jcasType.ll_cas.ll_setStringValue(addr, ((DictMatch_Type)jcasType).casFeatCode_code, v);}    
-  }
+}
 
     

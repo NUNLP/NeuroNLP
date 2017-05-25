@@ -1,6 +1,5 @@
 package edu.northwestern.fsm
 
-import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token
 import edu.northwestern.fsm.pipeline.SDHExtractionPipelineGenerator
 import edu.northwestern.fsm.type.Section
 import groovy.util.logging.Log4j
@@ -52,7 +51,6 @@ class SDHExtractionPipelineTests {
     }
 
     @Test void smokeTest() {
-        TypeSystemDescription typeSystemDescription = TypeSystemDescriptionFactory.createTypeSystemDescription()
         File dir = new File('src/test/resources/data/input')
         OutputStream outputStream = new FileOutputStream(new File("src/test/resources/data/output/test.json"))
         dir.listFiles().each {

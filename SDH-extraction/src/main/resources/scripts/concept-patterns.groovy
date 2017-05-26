@@ -12,7 +12,7 @@ import static edu.northwestern.fsm.domain.SDHConcept.*
 //---------------------------------------------------------------------------------------------------------------------
 
 def subdural$hemotoma = '''
-subdural\\s+hematoma
+(extra-?axial|subdural)(/subarachnoid)?\\s+(hematomas?|hemorrhages?|layerings?|collections?|blood|overlying)
 '''
 
 def left$side = '''
@@ -46,6 +46,7 @@ AnnotationRegex sdh$side$relation$1 = new AnnotationRegex((AnnotationPattern)
 AnnotationRegex sdh$side$relation$2 = new AnnotationRegex((AnnotationPattern)
     $N('side', $A(Side)) & $N('sdh', $A(SDH))
 )
+
 
 // ---------------------------------------------------------------------------------------------------------------------
 // binding variable map

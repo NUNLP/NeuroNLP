@@ -1,7 +1,6 @@
 package edu.northwestern.fsm
 
 import com.opencsv.CSVReader
-import de.tudarmstadt.ukp.dkpro.core.api.metadata.type.DocumentMetaData
 import edu.northwestern.fsm.pipeline.SDHExtractionPipelineGenerator
 import edu.northwestern.fsm.type.SDHSummary
 import org.apache.uima.analysis_engine.AnalysisEngine
@@ -75,6 +74,32 @@ class SDHExperiments {
             }
             else {
                 println "${metaData.documentTitle}: predicted = ${metaData.side}, actual = ${dd.side}"
+            }
+        }
+        println "Accuracy = ${numCorrect/totalCount}"
+    }
+
+    @Test void sdhThicknessTest() {
+        int totalCount = 0
+        int numCorrect = 0
+
+        AggregateBuilder builder = SDHExtractionPipelineGenerator.createSDHPipeline()
+        AnalysisEngine engine = builder.createAggregate()
+        JCas jcas = engine.newJCas()
+        trainSet.each { DocumentData dd ->
+            jcas.reset()
+            jcas.setDocumentText(dd.reportText)
+            SDHSummary metaData = new SDHSummary(jcas)
+            metaData.documentTitle = dd.id
+            metaData.addToIndexes()
+            engine.process(jcas)
+            metaData = jcas.select(type:SDHSummary)[0]
+            totalCount++
+            if (metaData.thickness== dd.thickness) {
+                numCorrect++
+            }
+            else if (metaData.thickness == 0) {
+                println "${metaData.documentTitle}: predicted = ${metaData.thickness}, actual = ${dd.thickness}"
             }
         }
         println "Accuracy = ${numCorrect/totalCount}"

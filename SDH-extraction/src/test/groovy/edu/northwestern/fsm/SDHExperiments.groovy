@@ -59,6 +59,7 @@ class SDHExperiments {
 
         AggregateBuilder builder = SDHExtractionPipelineGenerator.createSDHPipeline()
         AnalysisEngine engine = builder.createAggregate()
+
         JCas jcas = engine.newJCas()
         trainSet.each { DocumentData dd ->
             jcas.reset()
@@ -85,6 +86,7 @@ class SDHExperiments {
 
         AggregateBuilder builder = SDHExtractionPipelineGenerator.createSDHPipeline()
         AnalysisEngine engine = builder.createAggregate()
+
         JCas jcas = engine.newJCas()
         trainSet.each { DocumentData dd ->
             jcas.reset()
@@ -98,7 +100,7 @@ class SDHExperiments {
             if (metaData.thickness== dd.thickness) {
                 numCorrect++
             }
-            else if (metaData.thickness == 0) {
+            else {
                 println "${metaData.documentTitle}: predicted = ${metaData.thickness}, actual = ${dd.thickness}"
             }
         }

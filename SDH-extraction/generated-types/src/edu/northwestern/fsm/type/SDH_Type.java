@@ -1,5 +1,5 @@
 
-/* First created by JCasGen Thu May 25 21:49:31 CDT 2017 */
+/* First created by JCasGen Fri May 26 16:27:41 CDT 2017 */
 package edu.northwestern.fsm.type;
 
 import org.apache.uima.jcas.JCas;
@@ -11,7 +11,7 @@ import org.apache.uima.cas.Feature;
 import de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity_Type;
 
 /** SDH annotation
- * Updated by JCasGen Thu May 25 21:49:31 CDT 2017
+ * Updated by JCasGen Fri May 26 16:27:41 CDT 2017
  * @generated */
 public class SDH_Type extends NamedEntity_Type {
   /** @generated */
@@ -57,7 +57,7 @@ public class SDH_Type extends NamedEntity_Type {
   public int getThickness(int addr) {
         if (featOkTst && casFeat_thickness == null)
       jcas.throwFeatMissing("thickness", "edu.northwestern.fsm.type.SDH");
-    return ll_cas.ll_getIntValue(addr, casFeatCode_thickness);
+    return ll_cas.ll_getRefValue(addr, casFeatCode_thickness);
   }
   /** @generated
    * @param addr low level Feature Structure reference
@@ -66,7 +66,7 @@ public class SDH_Type extends NamedEntity_Type {
   public void setThickness(int addr, int v) {
         if (featOkTst && casFeat_thickness == null)
       jcas.throwFeatMissing("thickness", "edu.northwestern.fsm.type.SDH");
-    ll_cas.ll_setIntValue(addr, casFeatCode_thickness, v);}
+    ll_cas.ll_setRefValue(addr, casFeatCode_thickness, v);}
     
   
  
@@ -105,7 +105,7 @@ public class SDH_Type extends NamedEntity_Type {
   public int getShift(int addr) {
         if (featOkTst && casFeat_shift == null)
       jcas.throwFeatMissing("shift", "edu.northwestern.fsm.type.SDH");
-    return ll_cas.ll_getIntValue(addr, casFeatCode_shift);
+    return ll_cas.ll_getRefValue(addr, casFeatCode_shift);
   }
   /** @generated
    * @param addr low level Feature Structure reference
@@ -114,7 +114,7 @@ public class SDH_Type extends NamedEntity_Type {
   public void setShift(int addr, int v) {
         if (featOkTst && casFeat_shift == null)
       jcas.throwFeatMissing("shift", "edu.northwestern.fsm.type.SDH");
-    ll_cas.ll_setIntValue(addr, casFeatCode_shift, v);}
+    ll_cas.ll_setRefValue(addr, casFeatCode_shift, v);}
     
   
 
@@ -134,7 +134,7 @@ public class SDH_Type extends NamedEntity_Type {
     casFeatCode_side  = (null == casFeat_side) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_side).getCode();
 
  
-    casFeat_thickness = jcas.getRequiredFeatureDE(casType, "thickness", "uima.cas.Integer", featOkTst);
+    casFeat_thickness = jcas.getRequiredFeatureDE(casType, "thickness", "edu.northwestern.fsm.type.Measure", featOkTst);
     casFeatCode_thickness  = (null == casFeat_thickness) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_thickness).getCode();
 
  
@@ -142,7 +142,7 @@ public class SDH_Type extends NamedEntity_Type {
     casFeatCode_convexity  = (null == casFeat_convexity) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_convexity).getCode();
 
  
-    casFeat_shift = jcas.getRequiredFeatureDE(casType, "shift", "uima.cas.Integer", featOkTst);
+    casFeat_shift = jcas.getRequiredFeatureDE(casType, "shift", "edu.northwestern.fsm.type.Measure", featOkTst);
     casFeatCode_shift  = (null == casFeat_shift) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_shift).getCode();
 
   }

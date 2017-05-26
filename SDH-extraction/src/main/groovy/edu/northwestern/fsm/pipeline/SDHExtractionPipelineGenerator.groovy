@@ -4,6 +4,7 @@ import clinicalnlp.dsl.ScriptAnnotator
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpPosTagger
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpSegmenter
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordParser
+import de.tudarmstadt.ukp.dkpro.core.tokit.PatternBasedTokenSegmenter
 import edu.northwestern.fsm.type.Section
 import org.apache.uima.analysis_engine.AnalysisEngineDescription
 import org.apache.uima.fit.factory.AggregateBuilder
@@ -40,13 +41,17 @@ class SDHExtractionPipelineGenerator {
                 OpenNlpSegmenter.PARAM_TOKENIZATION_MODEL_LOCATION,
                 "classpath:/models/en-token.bin")
             )
+            add(createEngineDescription(PatternBasedTokenSegmenter,
+                PatternBasedTokenSegmenter.PARAM_DELETE_COVER, true,
+                PatternBasedTokenSegmenter.PARAM_PATTERNS, [/-/])
+            )
+//            add(createEngineDescription(OpenNlpPosTagger,
+//                OpenNlpPosTagger.PARAM_MODEL_LOCATION,
+//                "classpath:/models/mayo-pos.zip")
+//            )
             add(createEngineDescription(ScriptAnnotator,
                 ScriptAnnotator.PARAM_BINDING_SCRIPT_FILE, 'scripts/concept-patterns.groovy',
                 ScriptAnnotator.PARAM_SCRIPT_FILE, 'scripts/concept-matchers.groovy')
-            )
-            add(createEngineDescription(OpenNlpPosTagger,
-                OpenNlpPosTagger.PARAM_MODEL_LOCATION,
-                "classpath:/models/mayo-pos.zip")
             )
             add(createEngineDescription(ScriptAnnotator,
                 ScriptAnnotator.PARAM_SCRIPT_FILE, 'scripts/document-metadata.groovy')

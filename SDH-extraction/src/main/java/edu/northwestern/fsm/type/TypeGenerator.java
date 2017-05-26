@@ -48,13 +48,17 @@ public class TypeGenerator {
             "Side annotation",
             NamedEntity.class.getCanonicalName());
 
+        TypeDescription measureType = types.addType("edu.northwestern.fsm.type.Measure",
+            "Measure annotation",
+            NamedEntity.class.getCanonicalName());
+
         TypeDescription sdhType = types.addType("edu.northwestern.fsm.type.SDH",
             "SDH annotation",
             NamedEntity.class.getCanonicalName());
         sdhType.addFeature("side", "", "edu.northwestern.fsm.type.Side");
-        sdhType.addFeature("thickness", "", "uima.cas.Integer");
+        sdhType.addFeature("thickness", "", "edu.northwestern.fsm.type.Measure");
         sdhType.addFeature("convexity", "", "uima.cas.Boolean");
-        sdhType.addFeature("shift", "", "uima.cas.Integer");
+        sdhType.addFeature("shift", "", "edu.northwestern.fsm.type.Measure");
 
 
         TypeDescription docType = types.addType("edu.northwestern.fsm.type.SDHSummary",
@@ -66,17 +70,13 @@ public class TypeGenerator {
         docType.addFeature("shift", "", "uima.cas.Integer");
         docType.addFeature("count", "", "uima.cas.Integer");
 
-        TypeDescription measureType = types.addType("edu.northwestern.fsm.type.Measure",
-            "Measure annotation",
-            NamedEntity.class.getCanonicalName());
-
         // generate an XML descriptor
-        FileWriter writer = new FileWriter(new File(resDir.getCanonicalPath() + "/dkpro-types.xml"));
+        FileWriter writer = new FileWriter(new File(resDir.getCanonicalPath() + "/sdh-types.xml"));
         types.toXML(writer);
 
         // generate the source files
         Jg jcasGen = new Jg();
-        String[] args2 = new String[]{"-jcasgeninput", resDir.getCanonicalPath() + "/dkpro-types.xml",
+        String[] args2 = new String[]{"-jcasgeninput", resDir.getCanonicalPath() + "/sdh-types.xml",
             "-jcasgenoutput", srcDir.getCanonicalPath(),
             "=jcasgenclasspath", classDir.getCanonicalPath(),
             "-limitToDirectory", resDir.getCanonicalPath()

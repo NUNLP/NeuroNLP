@@ -1694,7 +1694,7 @@ relational adjectives, such as "proud" (with arguments who and of what).
                 <featureDescription>
                     <name>thickness</name>
                     <description/>
-                    <rangeTypeName>uima.cas.Integer</rangeTypeName>
+                    <rangeTypeName>edu.northwestern.fsm.type.Measure</rangeTypeName>
                 </featureDescription>
                 <featureDescription>
                     <name>convexity</name>
@@ -1704,7 +1704,7 @@ relational adjectives, such as "proud" (with arguments who and of what).
                 <featureDescription>
                     <name>shift</name>
                     <description/>
-                    <rangeTypeName>uima.cas.Integer</rangeTypeName>
+                    <rangeTypeName>edu.northwestern.fsm.type.Measure</rangeTypeName>
                 </featureDescription>
             </features>
         </typeDescription>

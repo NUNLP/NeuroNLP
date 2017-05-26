@@ -1,5 +1,5 @@
 
-/* First created by JCasGen Thu May 25 21:49:31 CDT 2017 */
+/* First created by JCasGen Fri May 26 16:27:41 CDT 2017 */
 package edu.northwestern.fsm.type;
 
 import org.apache.uima.jcas.JCas;
@@ -11,7 +11,7 @@ import org.apache.uima.cas.Feature;
 import de.tudarmstadt.ukp.dkpro.core.api.metadata.type.DocumentMetaData_Type;
 
 /** SDH summary
- * Updated by JCasGen Thu May 25 21:49:31 CDT 2017
+ * Updated by JCasGen Fri May 26 16:27:41 CDT 2017
  * @generated */
 public class SDHSummary_Type extends DocumentMetaData_Type {
   /** @generated */

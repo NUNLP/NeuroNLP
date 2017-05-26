@@ -1,6 +1,6 @@
 
 
-/* First created by JCasGen Thu May 25 21:49:31 CDT 2017 */
+/* First created by JCasGen Fri May 26 16:27:41 CDT 2017 */
 package edu.northwestern.fsm.type;
 
 import org.apache.uima.jcas.JCas; 
@@ -11,8 +11,8 @@ import de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity;
 
 
 /** Side annotation
- * Updated by JCasGen Thu May 25 21:49:31 CDT 2017
- * XML source: /Users/willthompson/Code/northwestern/NeuroNLP/SDH-extraction/generated-types/resources/edu/northwestern/fsm/type/dkpro-types.xml
+ * Updated by JCasGen Fri May 26 16:27:41 CDT 2017
+ * XML source: /Users/willthompson/Code/northwestern/NeuroNLP/SDH-extraction/generated-types/resources/edu/northwestern/fsm/type/sdh-types.xml
  * @generated */
 public class Side extends NamedEntity {
   /** @generated

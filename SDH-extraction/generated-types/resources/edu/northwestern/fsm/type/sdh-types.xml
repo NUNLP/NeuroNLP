@@ -18,6 +18,11 @@
             <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity</supertypeName>
         </typeDescription>
         <typeDescription>
+            <name>edu.northwestern.fsm.type.Measure</name>
+            <description>Measure annotation</description>
+            <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity</supertypeName>
+        </typeDescription>
+        <typeDescription>
             <name>edu.northwestern.fsm.type.SDH</name>
             <description>SDH annotation</description>
             <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity</supertypeName>
@@ -30,7 +35,7 @@
                 <featureDescription>
                     <name>thickness</name>
                     <description/>
-                    <rangeTypeName>uima.cas.Integer</rangeTypeName>
+                    <rangeTypeName>edu.northwestern.fsm.type.Measure</rangeTypeName>
                 </featureDescription>
                 <featureDescription>
                     <name>convexity</name>
@@ -40,7 +45,7 @@
                 <featureDescription>
                     <name>shift</name>
                     <description/>
-                    <rangeTypeName>uima.cas.Integer</rangeTypeName>
+                    <rangeTypeName>edu.northwestern.fsm.type.Measure</rangeTypeName>
                 </featureDescription>
             </features>
         </typeDescription>
@@ -75,11 +80,6 @@
                     <rangeTypeName>uima.cas.Integer</rangeTypeName>
                 </featureDescription>
             </features>
-        </typeDescription>
-        <typeDescription>
-            <name>edu.northwestern.fsm.type.Measure</name>
-            <description>Measure annotation</description>
-            <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity</supertypeName>
         </typeDescription>
     </types>
 </typeSystemDescription>

@@ -106,4 +106,31 @@ class SDHExperiments {
         }
         println "Accuracy = ${numCorrect/totalCount}"
     }
+
+    @Test void sdhCountTest() {
+        int totalCount = 0
+        int numCorrect = 0
+
+        AggregateBuilder builder = SDHExtractionPipelineGenerator.createSDHPipeline()
+        AnalysisEngine engine = builder.createAggregate()
+
+        JCas jcas = engine.newJCas()
+        trainSet.each { DocumentData dd ->
+            jcas.reset()
+            jcas.setDocumentText(dd.reportText)
+            SDHSummary metaData = new SDHSummary(jcas)
+            metaData.documentTitle = dd.id
+            metaData.addToIndexes()
+            engine.process(jcas)
+            metaData = jcas.select(type:SDHSummary)[0]
+            totalCount++
+            if (metaData.count== dd.count) {
+                numCorrect++
+            }
+            else {
+                println "${metaData.documentTitle}: predicted = ${metaData.count}, actual = ${dd.count}"
+            }
+        }
+        println "Accuracy = ${numCorrect/totalCount}"
+    }
 }

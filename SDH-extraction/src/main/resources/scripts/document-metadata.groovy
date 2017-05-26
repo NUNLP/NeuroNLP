@@ -6,6 +6,8 @@ import static edu.northwestern.fsm.domain.SDHConcept.*
 SDHSummary summary = jcas.select(type: SDHSummary)[0]
 if (summary) {
     summary.thickness = -9
+    summary.count = 1
+
     Collection<SDH> sdhs = jcas.select(type: SDH)
     SDH largestSDH = (sdhs.size() > 0 ? sdhs[0] : null)
     sdhs.each { SDH sdh ->

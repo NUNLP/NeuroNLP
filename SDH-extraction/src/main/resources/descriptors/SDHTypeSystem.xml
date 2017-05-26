@@ -1683,13 +1683,13 @@ relational adjectives, such as "proud" (with arguments who and of what).
         </typeDescription>
         <typeDescription>
             <name>edu.northwestern.fsm.type.SDH</name>
-            <description>Disorder annotation</description>
+            <description>SDH annotation</description>
             <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity</supertypeName>
             <features>
                 <featureDescription>
                     <name>side</name>
                     <description/>
-                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                    <rangeTypeName>edu.northwestern.fsm.type.Side</rangeTypeName>
                 </featureDescription>
                 <featureDescription>
                     <name>thickness</name>
@@ -1709,9 +1709,46 @@ relational adjectives, such as "proud" (with arguments who and of what).
             </features>
         </typeDescription>
         <typeDescription>
+            <name>edu.northwestern.fsm.type.SDHSummary</name>
+            <description>SDH summary</description>
+            <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.metadata.type.DocumentMetaData</supertypeName>
+            <features>
+                <featureDescription>
+                    <name>side</name>
+                    <description/>
+                    <rangeTypeName>uima.cas.Integer</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>thickness</name>
+                    <description/>
+                    <rangeTypeName>uima.cas.Integer</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>convexity</name>
+                    <description/>
+                    <rangeTypeName>uima.cas.Boolean</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>shift</name>
+                    <description/>
+                    <rangeTypeName>uima.cas.Integer</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>count</name>
+                    <description/>
+                    <rangeTypeName>uima.cas.Integer</rangeTypeName>
+                </featureDescription>
+            </features>
+        </typeDescription>
+        <typeDescription>
             <name>edu.northwestern.fsm.type.Section</name>
             <description>Section annotation</description>
             <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Div</supertypeName>
+        </typeDescription>
+        <typeDescription>
+            <name>edu.northwestern.fsm.type.Side</name>
+            <description>Side annotation</description>
+            <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity</supertypeName>
         </typeDescription>
     </types>
 </typeSystemDescription>

@@ -48,6 +48,9 @@ class SDHExtractionPipelineGenerator {
                 OpenNlpPosTagger.PARAM_MODEL_LOCATION,
                 "classpath:/models/mayo-pos.zip")
             )
+            add(createEngineDescription(ScriptAnnotator,
+                ScriptAnnotator.PARAM_SCRIPT_FILE, 'scripts/document-metadata.groovy')
+            )
 //            add(
 //                createEngineDescription(StanfordParser,
 //                StanfordParser.PARAM_MODEL_LOCATION,

@@ -1,5 +1,5 @@
 
-/* First created by JCasGen Thu May 25 11:48:07 CDT 2017 */
+/* First created by JCasGen Thu May 25 21:49:31 CDT 2017 */
 package edu.northwestern.fsm.type;
 
 import org.apache.uima.jcas.JCas;
@@ -9,7 +9,7 @@ import org.apache.uima.cas.Type;
 import de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity_Type;
 
 /** Measure annotation
- * Updated by JCasGen Thu May 25 11:48:07 CDT 2017
+ * Updated by JCasGen Thu May 25 21:49:31 CDT 2017
  * @generated */
 public class Measure_Type extends NamedEntity_Type {
   /** @generated */

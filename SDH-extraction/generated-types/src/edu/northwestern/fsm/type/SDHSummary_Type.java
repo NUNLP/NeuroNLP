@@ -8,19 +8,19 @@ import org.apache.uima.cas.impl.TypeImpl;
 import org.apache.uima.cas.Type;
 import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
-import de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity_Type;
+import de.tudarmstadt.ukp.dkpro.core.api.metadata.type.DocumentMetaData_Type;
 
-/** SDH annotation
+/** SDH summary
  * Updated by JCasGen Thu May 25 21:49:31 CDT 2017
  * @generated */
-public class SDH_Type extends NamedEntity_Type {
+public class SDHSummary_Type extends DocumentMetaData_Type {
   /** @generated */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = SDH.typeIndexID;
+  public final static int typeIndexID = SDHSummary.typeIndexID;
   /** @generated 
      @modifiable */
   @SuppressWarnings ("hiding")
-  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("edu.northwestern.fsm.type.SDH");
+  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("edu.northwestern.fsm.type.SDHSummary");
  
   /** @generated */
   final Feature casFeat_side;
@@ -32,8 +32,8 @@ public class SDH_Type extends NamedEntity_Type {
    */ 
   public int getSide(int addr) {
         if (featOkTst && casFeat_side == null)
-      jcas.throwFeatMissing("side", "edu.northwestern.fsm.type.SDH");
-    return ll_cas.ll_getRefValue(addr, casFeatCode_side);
+      jcas.throwFeatMissing("side", "edu.northwestern.fsm.type.SDHSummary");
+    return ll_cas.ll_getIntValue(addr, casFeatCode_side);
   }
   /** @generated
    * @param addr low level Feature Structure reference
@@ -41,8 +41,8 @@ public class SDH_Type extends NamedEntity_Type {
    */    
   public void setSide(int addr, int v) {
         if (featOkTst && casFeat_side == null)
-      jcas.throwFeatMissing("side", "edu.northwestern.fsm.type.SDH");
-    ll_cas.ll_setRefValue(addr, casFeatCode_side, v);}
+      jcas.throwFeatMissing("side", "edu.northwestern.fsm.type.SDHSummary");
+    ll_cas.ll_setIntValue(addr, casFeatCode_side, v);}
     
   
  
@@ -56,7 +56,7 @@ public class SDH_Type extends NamedEntity_Type {
    */ 
   public int getThickness(int addr) {
         if (featOkTst && casFeat_thickness == null)
-      jcas.throwFeatMissing("thickness", "edu.northwestern.fsm.type.SDH");
+      jcas.throwFeatMissing("thickness", "edu.northwestern.fsm.type.SDHSummary");
     return ll_cas.ll_getIntValue(addr, casFeatCode_thickness);
   }
   /** @generated
@@ -65,7 +65,7 @@ public class SDH_Type extends NamedEntity_Type {
    */    
   public void setThickness(int addr, int v) {
         if (featOkTst && casFeat_thickness == null)
-      jcas.throwFeatMissing("thickness", "edu.northwestern.fsm.type.SDH");
+      jcas.throwFeatMissing("thickness", "edu.northwestern.fsm.type.SDHSummary");
     ll_cas.ll_setIntValue(addr, casFeatCode_thickness, v);}
     
   
@@ -80,7 +80,7 @@ public class SDH_Type extends NamedEntity_Type {
    */ 
   public boolean getConvexity(int addr) {
         if (featOkTst && casFeat_convexity == null)
-      jcas.throwFeatMissing("convexity", "edu.northwestern.fsm.type.SDH");
+      jcas.throwFeatMissing("convexity", "edu.northwestern.fsm.type.SDHSummary");
     return ll_cas.ll_getBooleanValue(addr, casFeatCode_convexity);
   }
   /** @generated
@@ -89,7 +89,7 @@ public class SDH_Type extends NamedEntity_Type {
    */    
   public void setConvexity(int addr, boolean v) {
         if (featOkTst && casFeat_convexity == null)
-      jcas.throwFeatMissing("convexity", "edu.northwestern.fsm.type.SDH");
+      jcas.throwFeatMissing("convexity", "edu.northwestern.fsm.type.SDHSummary");
     ll_cas.ll_setBooleanValue(addr, casFeatCode_convexity, v);}
     
   
@@ -104,7 +104,7 @@ public class SDH_Type extends NamedEntity_Type {
    */ 
   public int getShift(int addr) {
         if (featOkTst && casFeat_shift == null)
-      jcas.throwFeatMissing("shift", "edu.northwestern.fsm.type.SDH");
+      jcas.throwFeatMissing("shift", "edu.northwestern.fsm.type.SDHSummary");
     return ll_cas.ll_getIntValue(addr, casFeatCode_shift);
   }
   /** @generated
@@ -113,8 +113,32 @@ public class SDH_Type extends NamedEntity_Type {
    */    
   public void setShift(int addr, int v) {
         if (featOkTst && casFeat_shift == null)
-      jcas.throwFeatMissing("shift", "edu.northwestern.fsm.type.SDH");
+      jcas.throwFeatMissing("shift", "edu.northwestern.fsm.type.SDHSummary");
     ll_cas.ll_setIntValue(addr, casFeatCode_shift, v);}
+    
+  
+ 
+  /** @generated */
+  final Feature casFeat_count;
+  /** @generated */
+  final int     casFeatCode_count;
+  /** @generated
+   * @param addr low level Feature Structure reference
+   * @return the feature value 
+   */ 
+  public int getCount(int addr) {
+        if (featOkTst && casFeat_count == null)
+      jcas.throwFeatMissing("count", "edu.northwestern.fsm.type.SDHSummary");
+    return ll_cas.ll_getIntValue(addr, casFeatCode_count);
+  }
+  /** @generated
+   * @param addr low level Feature Structure reference
+   * @param v value to set 
+   */    
+  public void setCount(int addr, int v) {
+        if (featOkTst && casFeat_count == null)
+      jcas.throwFeatMissing("count", "edu.northwestern.fsm.type.SDHSummary");
+    ll_cas.ll_setIntValue(addr, casFeatCode_count, v);}
     
   
 
@@ -125,12 +149,12 @@ public class SDH_Type extends NamedEntity_Type {
 	 * @param jcas JCas
 	 * @param casType Type 
 	 */
-  public SDH_Type(JCas jcas, Type casType) {
+  public SDHSummary_Type(JCas jcas, Type casType) {
     super(jcas, casType);
     casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());
 
  
-    casFeat_side = jcas.getRequiredFeatureDE(casType, "side", "edu.northwestern.fsm.type.Side", featOkTst);
+    casFeat_side = jcas.getRequiredFeatureDE(casType, "side", "uima.cas.Integer", featOkTst);
     casFeatCode_side  = (null == casFeat_side) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_side).getCode();
 
  
@@ -144,6 +168,10 @@ public class SDH_Type extends NamedEntity_Type {
  
     casFeat_shift = jcas.getRequiredFeatureDE(casType, "shift", "uima.cas.Integer", featOkTst);
     casFeatCode_shift  = (null == casFeat_shift) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_shift).getCode();
+
+ 
+    casFeat_count = jcas.getRequiredFeatureDE(casType, "count", "uima.cas.Integer", featOkTst);
+    casFeatCode_count  = (null == casFeat_count) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_count).getCode();
 
   }
 }

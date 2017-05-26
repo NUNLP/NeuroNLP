@@ -1,5 +1,6 @@
 package edu.northwestern.fsm.type;
 
+import de.tudarmstadt.ukp.dkpro.core.api.metadata.type.DocumentMetaData;
 import de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Div;
 import org.apache.uima.resource.metadata.Import;
@@ -33,21 +34,37 @@ public class TypeGenerator {
         nerImport.setName("desc/type/NamedEntity");
         Import divImport = new Import_impl();
         divImport.setName("desc/type/LexicalUnits");
+        Import metadataImport = new Import_impl();
+        metadataImport.setName("desc/type/metadata_customized");
 
-        Import[] imports = new Import[] { nerImport, divImport };
+        Import[] imports = new Import[] { nerImport, divImport, metadataImport };
         types.setImports(imports);
 
-        TypeDescription sectionType = types.addType("edu.northwestern.fsm.type.Section",
+        types.addType("edu.northwestern.fsm.type.Section",
             "Section annotation",
             Div.class.getCanonicalName());
 
-        TypeDescription disorderType = types.addType("edu.northwestern.fsm.type.SDH",
-            "Disorder annotation",
+        types.addType("edu.northwestern.fsm.type.Side",
+            "Side annotation",
             NamedEntity.class.getCanonicalName());
-        disorderType.addFeature("side", "", "uima.cas.String");
-        disorderType.addFeature("thickness", "", "uima.cas.Integer");
-        disorderType.addFeature("convexity", "", "uima.cas.Boolean");
-        disorderType.addFeature("shift", "", "uima.cas.Integer");
+
+        TypeDescription sdhType = types.addType("edu.northwestern.fsm.type.SDH",
+            "SDH annotation",
+            NamedEntity.class.getCanonicalName());
+        sdhType.addFeature("side", "", "edu.northwestern.fsm.type.Side");
+        sdhType.addFeature("thickness", "", "uima.cas.Integer");
+        sdhType.addFeature("convexity", "", "uima.cas.Boolean");
+        sdhType.addFeature("shift", "", "uima.cas.Integer");
+
+
+        TypeDescription docType = types.addType("edu.northwestern.fsm.type.SDHSummary",
+            "SDH summary",
+            DocumentMetaData.class.getCanonicalName());
+        docType.addFeature("side", "", "uima.cas.Integer");
+        docType.addFeature("thickness", "", "uima.cas.Integer");
+        docType.addFeature("convexity", "", "uima.cas.Boolean");
+        docType.addFeature("shift", "", "uima.cas.Integer");
+        docType.addFeature("count", "", "uima.cas.Integer");
 
         TypeDescription measureType = types.addType("edu.northwestern.fsm.type.Measure",
             "Measure annotation",

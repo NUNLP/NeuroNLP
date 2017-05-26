@@ -1,10 +1,14 @@
 package edu.northwestern.fsm
 
 import com.opencsv.CSVReader
+import de.tudarmstadt.ukp.dkpro.core.api.metadata.type.DocumentMetaData
+import edu.northwestern.fsm.pipeline.SDHExtractionPipelineGenerator
+import edu.northwestern.fsm.type.SDHSummary
+import org.apache.uima.analysis_engine.AnalysisEngine
+import org.apache.uima.fit.factory.AggregateBuilder
+import org.apache.uima.jcas.JCas
 import org.junit.BeforeClass
 import org.junit.Test
-
-import javax.print.Doc
 
 class SDHExperiments {
     static class DocumentData {
@@ -13,7 +17,7 @@ class SDHExperiments {
         public Integer shift
         public Integer thickness
         public Integer count
-        public Boolean side
+        public Integer side
         public Boolean convexity
         public String reportText
     }
@@ -50,10 +54,29 @@ class SDHExperiments {
         testSet = readData(testSetReader)
     }
 
-    @Test void runExperiment1() {
-        println "Count: ${trainSet.size()}"
-        println "Count: ${testSet.size()}"
-        trainSet.each {
+    @Test void sdhSideTest() {
+        int totalCount = 0
+        int numCorrect = 0
+
+        AggregateBuilder builder = SDHExtractionPipelineGenerator.createSDHPipeline()
+        AnalysisEngine engine = builder.createAggregate()
+        JCas jcas = engine.newJCas()
+        trainSet.each { DocumentData dd ->
+            jcas.reset()
+            jcas.setDocumentText(dd.reportText)
+            SDHSummary metaData = new SDHSummary(jcas)
+            metaData.documentTitle = dd.id
+            metaData.addToIndexes()
+            engine.process(jcas)
+            metaData = jcas.select(type:SDHSummary)[0]
+            totalCount++
+            if (metaData.side == dd.side) {
+                numCorrect++
+            }
+            else {
+                println "${metaData.documentTitle}: predicted = ${metaData.side}, actual = ${dd.side}"
+            }
         }
+        println "Accuracy = ${numCorrect/totalCount}"
     }
 }

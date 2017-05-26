@@ -6,19 +6,19 @@ import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.JCasRegistry;
 import org.apache.uima.cas.impl.TypeImpl;
 import org.apache.uima.cas.Type;
-import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Div_Type;
+import de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity_Type;
 
-/** Section annotation
+/** Side annotation
  * Updated by JCasGen Thu May 25 21:49:31 CDT 2017
  * @generated */
-public class Section_Type extends Div_Type {
+public class Side_Type extends NamedEntity_Type {
   /** @generated */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = Section.typeIndexID;
+  public final static int typeIndexID = Side.typeIndexID;
   /** @generated 
      @modifiable */
   @SuppressWarnings ("hiding")
-  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("edu.northwestern.fsm.type.Section");
+  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("edu.northwestern.fsm.type.Side");
 
 
 
@@ -27,7 +27,7 @@ public class Section_Type extends Div_Type {
 	 * @param jcas JCas
 	 * @param casType Type 
 	 */
-  public Section_Type(JCas jcas, Type casType) {
+  public Side_Type(JCas jcas, Type casType) {
     super(jcas, casType);
     casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());
 

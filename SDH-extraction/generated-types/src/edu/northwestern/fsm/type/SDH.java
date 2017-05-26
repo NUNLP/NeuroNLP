@@ -1,6 +1,6 @@
 
 
-/* First created by JCasGen Thu May 25 11:48:07 CDT 2017 */
+/* First created by JCasGen Thu May 25 21:49:31 CDT 2017 */
 package edu.northwestern.fsm.type;
 
 import org.apache.uima.jcas.JCas; 
@@ -10,8 +10,8 @@ import org.apache.uima.jcas.cas.TOP_Type;
 import de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity;
 
 
-/** Disorder annotation
- * Updated by JCasGen Thu May 25 11:48:07 CDT 2017
+/** SDH annotation
+ * Updated by JCasGen Thu May 25 21:49:31 CDT 2017
  * XML source: /Users/willthompson/Code/northwestern/NeuroNLP/SDH-extraction/generated-types/resources/edu/northwestern/fsm/type/dkpro-types.xml
  * @generated */
 public class SDH extends NamedEntity {
@@ -83,19 +83,19 @@ public class SDH extends NamedEntity {
    * @generated
    * @return value of the feature 
    */
-  public String getSide() {
+  public Side getSide() {
     if (SDH_Type.featOkTst && ((SDH_Type)jcasType).casFeat_side == null)
       jcasType.jcas.throwFeatMissing("side", "edu.northwestern.fsm.type.SDH");
-    return jcasType.ll_cas.ll_getStringValue(addr, ((SDH_Type)jcasType).casFeatCode_side);}
+    return (Side)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((SDH_Type)jcasType).casFeatCode_side)));}
     
   /** setter for side - sets  
    * @generated
    * @param v value to set into the feature 
    */
-  public void setSide(String v) {
+  public void setSide(Side v) {
     if (SDH_Type.featOkTst && ((SDH_Type)jcasType).casFeat_side == null)
       jcasType.jcas.throwFeatMissing("side", "edu.northwestern.fsm.type.SDH");
-    jcasType.ll_cas.ll_setStringValue(addr, ((SDH_Type)jcasType).casFeatCode_side, v);}    
+    jcasType.ll_cas.ll_setRefValue(addr, ((SDH_Type)jcasType).casFeatCode_side, jcasType.ll_cas.ll_getFSRef(v));}    
    
     
   //*--------------*

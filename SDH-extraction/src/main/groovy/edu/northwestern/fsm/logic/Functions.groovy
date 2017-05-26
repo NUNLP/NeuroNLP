@@ -1,45 +1,46 @@
 package edu.northwestern.fsm.logic
 
-import clinicalnlp.dsl.DSL
 import de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity
-import org.apache.uima.fit.util.JCasUtil
 import org.apache.uima.jcas.JCas
 import org.apache.uima.jcas.tcas.Annotation
 
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
-class Functions {
-    /**
-     * Create NamedEntity instances using regular expression patterns
-     * @param args
-     * @return
-     */
-    static Collection<NamedEntity> createConceptMentions(Map args) {
-        JCas jcas = args.jcas
-        Map patterns = args.patterns
-        Collection searchSet = args.searchSet
-        Class type = args.type
-        Integer group = args.group ?: 0
-        String identifier = args.identifier
+import static clinicalnlp.dsl.DSL.*
 
-        List<? extends NamedEntity> mentions = []
-        searchSet.each { Annotation ann ->
-            patterns.each { Pattern pattern, Map vals ->
-                Matcher matcher = ann.coveredText =~ pattern
-                matcher.each {
-                    // create an annotation for each match
-                    NamedEntity mention = jcas.create(
-                        type:type,
-                        begin:(matcher.start(group) + ann.begin),
-                        end:(matcher.end(group) + ann.begin),
-                        identifier:identifier
-                    )
-                    mentions << mention
+class Functions {
+        /**
+         * Create concept mentions
+         * @param args
+         * @return
+         */
+        static Collection<NamedEntity> createConceptMentions(final Map args) {
+            JCas jcas = args.jcas
+            Map patterns = args.patterns
+            Collection searchSet = args.searchSet
+            Class type = args.type
+            Boolean longestMatch = args.longestMatch
+            Integer group = args.group ?: 0
+            List<? extends NamedEntity> mentions = []
+            searchSet.each { Annotation ann ->
+                patterns.each { Pattern pattern, Map vals ->
+                    Matcher matcher = ann.coveredText =~ pattern
+                    matcher.each {
+                        // create an annotation for each match
+                        NamedEntity mention = jcas.create(
+                            type:type,
+                            begin:(matcher.start(group) + ann.begin),
+                            end:(matcher.end(group) + ann.begin),
+                            identifier:vals.code
+                        )
+                        mentions << mention
+                    }
                 }
             }
+            if (longestMatch) {
+                removeCovered(jcas, [anns:jcas.select(type:type), types:[type]])
+            }
+            return mentions
         }
-
-        return mentions
-    }
 }

@@ -7,19 +7,19 @@ import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.JCasRegistry;
 import org.apache.uima.jcas.cas.TOP_Type;
 
-import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Div;
+import de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity;
 
 
-/** Section annotation
+/** Side annotation
  * Updated by JCasGen Thu May 25 21:49:31 CDT 2017
  * XML source: /Users/willthompson/Code/northwestern/NeuroNLP/SDH-extraction/generated-types/resources/edu/northwestern/fsm/type/dkpro-types.xml
  * @generated */
-public class Section extends Div {
+public class Side extends NamedEntity {
   /** @generated
    * @ordered 
    */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = JCasRegistry.register(Section.class);
+  public final static int typeIndexID = JCasRegistry.register(Side.class);
   /** @generated
    * @ordered 
    */
@@ -33,14 +33,14 @@ public class Section extends Div {
  
   /** Never called.  Disable default constructor
    * @generated */
-  protected Section() {/* intentionally empty block */}
+  protected Side() {/* intentionally empty block */}
     
   /** Internal - constructor used by generator 
    * @generated
    * @param addr low level Feature Structure reference
    * @param type the type of this Feature Structure 
    */
-  public Section(int addr, TOP_Type type) {
+  public Side(int addr, TOP_Type type) {
     super(addr, type);
     readObject();
   }
@@ -48,7 +48,7 @@ public class Section extends Div {
   /** @generated
    * @param jcas JCas to which this Feature Structure belongs 
    */
-  public Section(JCas jcas) {
+  public Side(JCas jcas) {
     super(jcas);
     readObject();   
   } 
@@ -58,7 +58,7 @@ public class Section extends Div {
    * @param begin offset to the begin spot in the SofA
    * @param end offset to the end spot in the SofA 
   */  
-  public Section(JCas jcas, int begin, int end) {
+  public Side(JCas jcas, int begin, int end) {
     super(jcas);
     setBegin(begin);
     setEnd(end);

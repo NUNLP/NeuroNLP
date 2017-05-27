@@ -54,4 +54,6 @@ class SDHConcept {
     static final SDHConcept SUBDURAL_HEMATOMA = new SDHConcept(cite:'Subdural_Hematoma', codeSystem:CODING_SCHEME_SNOMED, code:'95453001', cui:'C0018946', tui:TUI_PATHOLOGIC_FUNCTION)
     static final SDHConcept LEFT = new SDHConcept(cite:'Left', codeSystem:CODING_SCHEME_SNOMED, code:'7771000', cui:'C0450414', tui:TUI_SPATIAL_CONCEPT)
     static final SDHConcept RIGHT = new SDHConcept(cite:'Right', codeSystem:CODING_SCHEME_SNOMED, code:'24028007', cui:'C0450415', tui:TUI_SPATIAL_CONCEPT)
+    static final SDHConcept MEASURE = new SDHConcept(cite:'Measure', codeSystem:CODING_SCHEME_UCUM, code:'', cui:'', tui:TUI_QUANTITATIVE_CONCEPT)
+
 }

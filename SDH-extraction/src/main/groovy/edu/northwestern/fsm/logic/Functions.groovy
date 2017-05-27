@@ -15,7 +15,7 @@ class Functions {
          * @param args
          * @return
          */
-        static Collection<NamedEntity> createConceptMentions(final Map args) {
+        static Collection<NamedEntity> createMentions(final Map args) {
             JCas jcas = args.jcas
             Map patterns = args.patterns
             Collection searchSet = args.searchSet

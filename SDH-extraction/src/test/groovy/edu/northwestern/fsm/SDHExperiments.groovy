@@ -106,6 +106,8 @@ class SDHExperiments {
                 println "${metaData.documentTitle}: predicted = ${metaData.thickness}, actual = ${dd.thickness}"
             }
         }
+        println "Num correct: ${numCorrect}"
+        println "Total count: ${totalCount}"
         println "Accuracy = ${numCorrect/totalCount}"
     }
 

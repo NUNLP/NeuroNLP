@@ -1,6 +1,5 @@
 import clinicalnlp.pattern.AnnotationSequencer
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence
-import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token
 import edu.northwestern.fsm.type.Measure
 import edu.northwestern.fsm.type.SDH
 import edu.northwestern.fsm.type.Section
@@ -9,33 +8,55 @@ import edu.northwestern.fsm.type.Side
 import static clinicalnlp.dsl.DSL.getContains
 import static edu.northwestern.fsm.domain.SDHConcept.SEG_FINDINGS
 import static edu.northwestern.fsm.domain.SDHConcept.SEG_IMPRESSION
-import static edu.northwestern.fsm.logic.Functions.createConceptMentions
+import static edu.northwestern.fsm.logic.Functions.createMentions
 
 //---------------------------------------------------------------------------------------------------------------------
 // base pattern matching
 //---------------------------------------------------------------------------------------------------------------------
 
-createConceptMentions(
+Collection<Section> sections = jcas.select(type:Section, filter:{it.divType in [SEG_FINDINGS, SEG_IMPRESSION]})
+
+createMentions(
     patterns:sdh$patterns,
     jcas:jcas,
-    searchSet:jcas.select(type:Section, filter:{it.divType in [SEG_FINDINGS, SEG_IMPRESSION]}),
+    searchSet:sections,
     type:SDH,
     longestMatch:true
 )
 
-createConceptMentions(
+createMentions(
     patterns:side$patterns,
     jcas:jcas,
-    searchSet:jcas.select(type:Section, filter:{it.divType in [SEG_FINDINGS, SEG_IMPRESSION]}),
+    searchSet:sections,
     type:Side,
     longestMatch:true
 )
+
+createMentions(
+    patterns:measure$patterns,
+    jcas:jcas,
+    searchSet:sections,
+    type:Measure,
+    longestMatch:true
+)
+
+jcas.select(type:Measure).each { Measure measure ->
+    def m = measure.coveredText =~ /(?i)(.+?)(?:\s*|-)(cm|mm)/
+    m.find()
+    String num = m.group(1)
+    String unit = m.group(2)
+    measure.value = num.toFloat()
+    measure.identifier = unit.toUpperCase()
+}
 
 //---------------------------------------------------------------------------------------------------------------------
 // higher order pattern matching
 //---------------------------------------------------------------------------------------------------------------------
 
 jcas.select(type:Sentence, filter:(contains(SDH))).each { Sentence sentence ->
+
+    // Side patterns
+
     def sequence = new AnnotationSequencer(sentence, [SDH, Side]).first()
     sdh$side$relation$1.matcher(sequence).each { Binding b ->
         SDH sdh = b.getVariable('sdh')[0]
@@ -48,28 +69,8 @@ jcas.select(type:Sentence, filter:(contains(SDH))).each { Sentence sentence ->
         sdh.side = side
     }
 
-    sequence = new AnnotationSequencer(sentence, [Token]).first()
-    sdh$size$relation$0.matcher(sequence).each { Binding b ->
-        Token num$unit = b.getVariable('numunit')[0]
-        def m = num$unit.coveredText =~ /(?i)(.+)(cm|mm)/
-        m.find()
-        String num = m.group(1)
-        String unit = m.group(2)
-        jcas.create(type:Measure,
-            begin:num$unit.begin,
-            end:num$unit.end,
-            identifier:unit.toUpperCase(),
-            value:num.toFloat())
-    }
-    sdh$size$relation$1.matcher(sequence).each { Binding b ->
-        Token num = b.getVariable('num')[0]
-        Token unit = b.getVariable('unit')[0]
-        jcas.create(type:Measure,
-            begin:num.begin,
-            end:num.end,
-            identifier:unit.coveredText.toUpperCase(),
-            value:num.coveredText.toFloat())
-    }
+
+    // Measure patterns
 
     sequence = new AnnotationSequencer(sentence, [SDH, Side, Measure]).first()
     sdh$size$relation$2.matcher(sequence).each { Binding b ->

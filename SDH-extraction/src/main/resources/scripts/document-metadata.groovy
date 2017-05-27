@@ -6,7 +6,6 @@ import static edu.northwestern.fsm.domain.SDHConcept.*
 SDHSummary summary = jcas.select(type: SDHSummary)[0]
 if (summary) {
     summary.thickness = -9
-    summary.count = 1
 
     Collection<SDH> sdhs = jcas.select(type: SDH)
     SDH largestSDH = (sdhs.size() > 0 ? sdhs[0] : null)
@@ -28,6 +27,25 @@ if (summary) {
             }
         }
     }
+
+    // generate a count
+    Set<SDH> uniques = []
+    sdhs.each { SDH sdh ->
+        if (sdh.side && sdh.thickness) {
+            boolean add = true
+            uniques.each { SDH unique ->
+                if ((sdh.side.identifier == unique.side.identifier) &&
+                    (sdh.thickness.identifier == unique.thickness.identifier) &&
+                    (sdh.thickness.value == unique.thickness.value)
+                ) {
+                    add = false
+                }
+            }
+            if (add) { uniques.add(sdh) }
+        }
+    }
+    summary.count = (uniques.size() ?: 1)
+
 
     if (largestSDH) {
         // Record side of largest SDH

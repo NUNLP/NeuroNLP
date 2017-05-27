@@ -34,7 +34,7 @@ def right$side = '''
 '''
 
 def measure = '''
-/(?i)\\d+(\\.\\d+)?(cm|mm)/
+(?i)\\d+(\\.\\d+)?(\\s*|-)(cm|mm)
 '''
 
 sdh$patterns = [
@@ -43,14 +43,14 @@ sdh$patterns = [
 ]
 
 side$patterns = [
-    (~"(?ixs)\\b(?:${left$side})\\b")           : LEFT.map,
-    (~"(?ixs)\\b(?:${right$side})\\b")          : RIGHT.map
+    (~"(?ixs)\\b(?:${left$side})\\b")   : LEFT.map,
+    (~"(?ixs)\\b(?:${right$side})\\b")  : RIGHT.map
 ]
 
 measure$patterns = [
-    (~"(?ixs)\\b(?:${left$side})\\b")           : LEFT.map,
-    (~"(?ixs)\\b(?:${right$side})\\b")          : RIGHT.map
+    (~"(?ixs)\\b(?:${measure})\\b") : MEASURE.map
 ]
+
 
 //---------------------------------------------------------------------------------------------------------------------
 // higher order patterns
@@ -62,14 +62,6 @@ AnnotationRegex sdh$side$relation$1 = new AnnotationRegex((AnnotationPattern)
 
 AnnotationRegex sdh$side$relation$2 = new AnnotationRegex((AnnotationPattern)
     $N('side', $A(Side)) & $N('sdh', $A(SDH))
-)
-
-AnnotationRegex sdh$size$relation$0 = new AnnotationRegex((AnnotationPattern)
-    $N('numunit', $A(Token, [text:/(?i)\d+(\.\d+)?(cm|mm)/]))
-)
-
-AnnotationRegex sdh$size$relation$1 = new AnnotationRegex((AnnotationPattern)
-    $N('num', $A(Token, [text:/\d+(\.\d+)?/])) & $N('unit', $A(Token, [text:/(?i)cm|mm/]))
 )
 
 AnnotationRegex sdh$size$relation$2 = new AnnotationRegex((AnnotationPattern)
@@ -86,10 +78,9 @@ AnnotationRegex sdh$size$relation$3 = new AnnotationRegex((AnnotationPattern)
 [
     sdh$patterns:sdh$patterns,
     side$patterns:side$patterns,
+    measure$patterns:measure$patterns,
     sdh$side$relation$1:sdh$side$relation$1,
     sdh$side$relation$2:sdh$side$relation$2,
-    sdh$size$relation$0:sdh$size$relation$0,
-    sdh$size$relation$1:sdh$size$relation$1,
     sdh$size$relation$2:sdh$size$relation$2,
     sdh$size$relation$3:sdh$size$relation$3
 ]

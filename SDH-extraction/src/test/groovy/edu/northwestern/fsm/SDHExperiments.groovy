@@ -23,6 +23,7 @@ class SDHExperiments {
 
     static Collection<DocumentData> trainSet = []
     static Collection<DocumentData> testSet = []
+    static Collection<DocumentData> combinedSet = []
 
     static Collection<DocumentData> readData(CSVReader reader) {
         Collection<DocumentData> documentData = []
@@ -51,6 +52,9 @@ class SDHExperiments {
         CSVReader testSetReader = new CSVReader(new FileReader(
             '/Users/willthompson/Box Sync/SDH NLP Development Project/SDH-testing.csv'))
         testSet = readData(testSetReader)
+
+        combinedSet.addAll(trainSet)
+        combinedSet.addAll(testSet)
     }
 
     @Test void sdhSideTest() {
@@ -61,7 +65,7 @@ class SDHExperiments {
         AnalysisEngine engine = builder.createAggregate()
 
         JCas jcas = engine.newJCas()
-        trainSet.each { DocumentData dd ->
+        combinedSet.each { DocumentData dd ->
             jcas.reset()
             jcas.setDocumentText(dd.reportText)
             SDHSummary metaData = new SDHSummary(jcas)
@@ -74,7 +78,7 @@ class SDHExperiments {
                 numCorrect++
             }
             else {
-                println "${metaData.documentTitle}: predicted = ${metaData.side}, actual = ${dd.side}"
+//                println "${metaData.documentTitle}: predicted = ${metaData.side}, actual = ${dd.side}"
             }
         }
         println "Num correct: ${numCorrect}"
@@ -90,7 +94,7 @@ class SDHExperiments {
         AnalysisEngine engine = builder.createAggregate()
 
         JCas jcas = engine.newJCas()
-        trainSet.each { DocumentData dd ->
+        combinedSet.each { DocumentData dd ->
             jcas.reset()
             jcas.setDocumentText(dd.reportText)
             SDHSummary metaData = new SDHSummary(jcas)
@@ -103,7 +107,7 @@ class SDHExperiments {
                 numCorrect++
             }
             else {
-                println "${metaData.documentTitle}: predicted = ${metaData.thickness}, actual = ${dd.thickness}"
+//                println "${metaData.documentTitle}: predicted = ${metaData.thickness}, actual = ${dd.thickness}"
             }
         }
         println "Num correct: ${numCorrect}"
@@ -119,7 +123,7 @@ class SDHExperiments {
         AnalysisEngine engine = builder.createAggregate()
 
         JCas jcas = engine.newJCas()
-        trainSet.each { DocumentData dd ->
+        combinedSet.each { DocumentData dd ->
             jcas.reset()
             jcas.setDocumentText(dd.reportText)
             SDHSummary metaData = new SDHSummary(jcas)
@@ -132,9 +136,40 @@ class SDHExperiments {
                 numCorrect++
             }
             else {
-                println "${metaData.documentTitle}: predicted = ${metaData.count}, actual = ${dd.count}"
+//                println "${metaData.documentTitle}: predicted = ${metaData.count}, actual = ${dd.count}"
             }
         }
+        println "Num correct: ${numCorrect}"
+        println "Total count: ${totalCount}"
+        println "Accuracy = ${numCorrect/totalCount}"
+    }
+
+    @Test void sdhShiftTest() {
+        int totalCount = 0
+        int numCorrect = 0
+
+        AggregateBuilder builder = SDHExtractionPipelineGenerator.createSDHPipeline()
+        AnalysisEngine engine = builder.createAggregate()
+
+        JCas jcas = engine.newJCas()
+        combinedSet.each { DocumentData dd ->
+            jcas.reset()
+            jcas.setDocumentText(dd.reportText)
+            SDHSummary metaData = new SDHSummary(jcas)
+            metaData.documentTitle = dd.id
+            metaData.addToIndexes()
+            engine.process(jcas)
+            metaData = jcas.select(type:SDHSummary)[0]
+            totalCount++
+            if (metaData.shift == dd.shift || (metaData.shift == 0 && dd.shift == null)) {
+                numCorrect++
+            }
+            else {
+//                println "${metaData.documentTitle}: predicted = ${metaData.shift}, actual = ${dd.shift}"
+            }
+        }
+        println "Num correct: ${numCorrect}"
+        println "Total count: ${totalCount}"
         println "Accuracy = ${numCorrect/totalCount}"
     }
 }

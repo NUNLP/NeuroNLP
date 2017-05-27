@@ -1,6 +1,6 @@
 
 
-/* First created by JCasGen Fri May 26 16:27:41 CDT 2017 */
+/* First created by JCasGen Sat May 27 14:22:23 CDT 2017 */
 package edu.northwestern.fsm.type;
 
 import org.apache.uima.jcas.JCas; 
@@ -11,7 +11,7 @@ import de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity;
 
 
 /** SDH annotation
- * Updated by JCasGen Fri May 26 16:27:41 CDT 2017
+ * Updated by JCasGen Sat May 27 14:22:23 CDT 2017
  * XML source: /Users/willthompson/Code/northwestern/NeuroNLP/SDH-extraction/generated-types/resources/edu/northwestern/fsm/type/sdh-types.xml
  * @generated */
 public class SDH extends NamedEntity {
@@ -140,28 +140,6 @@ public class SDH extends NamedEntity {
     if (SDH_Type.featOkTst && ((SDH_Type)jcasType).casFeat_convexity == null)
       jcasType.jcas.throwFeatMissing("convexity", "edu.northwestern.fsm.type.SDH");
     jcasType.ll_cas.ll_setBooleanValue(addr, ((SDH_Type)jcasType).casFeatCode_convexity, v);}    
-   
-    
-  //*--------------*
-  //* Feature: shift
-
-  /** getter for shift - gets 
-   * @generated
-   * @return value of the feature 
-   */
-  public Measure getShift() {
-    if (SDH_Type.featOkTst && ((SDH_Type)jcasType).casFeat_shift == null)
-      jcasType.jcas.throwFeatMissing("shift", "edu.northwestern.fsm.type.SDH");
-    return (Measure)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((SDH_Type)jcasType).casFeatCode_shift)));}
-    
-  /** setter for shift - sets  
-   * @generated
-   * @param v value to set into the feature 
-   */
-  public void setShift(Measure v) {
-    if (SDH_Type.featOkTst && ((SDH_Type)jcasType).casFeat_shift == null)
-      jcasType.jcas.throwFeatMissing("shift", "edu.northwestern.fsm.type.SDH");
-    jcasType.ll_cas.ll_setRefValue(addr, ((SDH_Type)jcasType).casFeatCode_shift, jcasType.ll_cas.ll_getFSRef(v));}    
   }
 
     

@@ -1,3 +1,4 @@
+import edu.northwestern.fsm.type.MidlineShift
 import edu.northwestern.fsm.type.SDH
 import edu.northwestern.fsm.type.SDHSummary
 
@@ -5,9 +6,10 @@ import static edu.northwestern.fsm.domain.SDHConcept.*
 
 SDHSummary summary = jcas.select(type: SDHSummary)[0]
 if (summary) {
-    summary.thickness = -9
-
     Collection<SDH> sdhs = jcas.select(type: SDH)
+
+    // record thickness of largest SDH
+    summary.thickness = -9 // default: unknown value
     SDH largestSDH = (sdhs.size() > 0 ? sdhs[0] : null)
     sdhs.each { SDH sdh ->
         if (sdh.thickness != null) {
@@ -28,7 +30,24 @@ if (summary) {
         }
     }
 
-    // generate a count
+    // record side of thickest SDH
+    if (largestSDH) {
+        // Record side of largest SDH
+        if (!largestSDH.side) {
+            summary.side = 3
+        } else {
+            switch (largestSDH.side.identifier) {
+                case LEFT.code:
+                    summary.side = 1
+                    break
+                case RIGHT.code:
+                    summary.side = 2
+                    break
+            }
+        }
+    }
+
+    // generate an SDH count
     Set<SDH> uniques = []
     sdhs.each { SDH sdh ->
         if (sdh.side && sdh.thickness) {
@@ -46,20 +65,12 @@ if (summary) {
     }
     summary.count = (uniques.size() ?: 1)
 
-
-    if (largestSDH) {
-        // Record side of largest SDH
-        if (!largestSDH.side) {
-            summary.side = 3
-        } else {
-            switch (largestSDH.side.identifier) {
-                case LEFT.code:
-                    summary.side = 1
-                    break
-                case RIGHT.code:
-                    summary.side = 2
-                    break
-            }
+    // record midline shift
+    summary.shift = 0
+    jcas.select(type:MidlineShift).each { MidlineShift shift ->
+        if (shift.distance) {
+            summary.shift = (shift.distance.identifier == 'MM' ? shift.distance.value.toFloat() :
+                shift.distance.value.toFloat() * 10)
         }
     }
 }

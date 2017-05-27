@@ -1,7 +1,7 @@
 import clinicalnlp.pattern.AnnotationPattern
 import clinicalnlp.pattern.AnnotationRegex
-import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token
 import edu.northwestern.fsm.type.Measure
+import edu.northwestern.fsm.type.MidlineShift
 import edu.northwestern.fsm.type.SDH
 import edu.northwestern.fsm.type.Side
 
@@ -20,6 +20,10 @@ def subdural$hemotoma$1 = '''
 
 def subdural$hemotoma$2 = '''
 (subdural)|(the\\s+hematoma)|(this\\s+hematoma)|(hyperdensit(y|ies))|(collections?)
+'''
+
+def midline$shift = '''
+midline\\s+shift
 '''
 
 def left$side = '''
@@ -42,6 +46,10 @@ sdh$patterns = [
     (~"(?ixs)\\b(?:${subdural$hemotoma$2})\\b")   : SUBDURAL_HEMATOMA.map
 ]
 
+midline$shift$patterns = [
+    (~"(?ixs)\\b(?:${midline$shift})\\b") : MEASURE.map
+]
+
 side$patterns = [
     (~"(?ixs)\\b(?:${left$side})\\b")   : LEFT.map,
     (~"(?ixs)\\b(?:${right$side})\\b")  : RIGHT.map
@@ -50,7 +58,6 @@ side$patterns = [
 measure$patterns = [
     (~"(?ixs)\\b(?:${measure})\\b") : MEASURE.map
 ]
-
 
 //---------------------------------------------------------------------------------------------------------------------
 // higher order patterns
@@ -72,15 +79,26 @@ AnnotationRegex sdh$size$relation$3 = new AnnotationRegex((AnnotationPattern)
     $N('measure', $A(Measure)) & $A(Side)(0,2) & $N('sdh', $A(SDH))
 )
 
+AnnotationRegex midline$shift$size$relation$1 = new AnnotationRegex((AnnotationPattern)
+    $N('shift', $A(MidlineShift)) & $N('measure', $A(Measure))
+)
+
+AnnotationRegex midline$shift$size$relation$2 = new AnnotationRegex((AnnotationPattern)
+    $N('measure', $A(Measure)) & $N('shift', $A(MidlineShift))
+)
+
 // ---------------------------------------------------------------------------------------------------------------------
 // binding variable map
 // ---------------------------------------------------------------------------------------------------------------------
 [
     sdh$patterns:sdh$patterns,
     side$patterns:side$patterns,
+    midline$shift$patterns:midline$shift$patterns,
     measure$patterns:measure$patterns,
     sdh$side$relation$1:sdh$side$relation$1,
     sdh$side$relation$2:sdh$side$relation$2,
     sdh$size$relation$2:sdh$size$relation$2,
-    sdh$size$relation$3:sdh$size$relation$3
+    sdh$size$relation$3:sdh$size$relation$3,
+    midline$shift$size$relation$1:midline$shift$size$relation$1,
+    midline$shift$size$relation$2:midline$shift$size$relation$2
 ]

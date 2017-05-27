@@ -1726,6 +1726,18 @@ relational adjectives, such as "proud" (with arguments who and of what).
                                 <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity</supertypeName>
                             </typeDescription>
                             <typeDescription>
+                                <name>edu.northwestern.fsm.type.MidlineShift</name>
+                                <description>Measure annotation</description>
+                                <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity</supertypeName>
+                                <features>
+                                    <featureDescription>
+                                        <name>distance</name>
+                                        <description/>
+                                        <rangeTypeName>edu.northwestern.fsm.type.Measure</rangeTypeName>
+                                    </featureDescription>
+                                </features>
+                            </typeDescription>
+                            <typeDescription>
                                 <name>edu.northwestern.fsm.type.SDH</name>
                                 <description>SDH annotation</description>
                                 <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity</supertypeName>
@@ -1744,11 +1756,6 @@ relational adjectives, such as "proud" (with arguments who and of what).
                                         <name>convexity</name>
                                         <description/>
                                         <rangeTypeName>uima.cas.Boolean</rangeTypeName>
-                                    </featureDescription>
-                                    <featureDescription>
-                                        <name>shift</name>
-                                        <description/>
-                                        <rangeTypeName>edu.northwestern.fsm.type.Measure</rangeTypeName>
                                     </featureDescription>
                                 </features>
                             </typeDescription>
@@ -3619,6 +3626,18 @@ relational adjectives, such as "proud" (with arguments who and of what).
                                 <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity</supertypeName>
                             </typeDescription>
                             <typeDescription>
+                                <name>edu.northwestern.fsm.type.MidlineShift</name>
+                                <description>Measure annotation</description>
+                                <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity</supertypeName>
+                                <features>
+                                    <featureDescription>
+                                        <name>distance</name>
+                                        <description/>
+                                        <rangeTypeName>edu.northwestern.fsm.type.Measure</rangeTypeName>
+                                    </featureDescription>
+                                </features>
+                            </typeDescription>
+                            <typeDescription>
                                 <name>edu.northwestern.fsm.type.SDH</name>
                                 <description>SDH annotation</description>
                                 <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity</supertypeName>
@@ -3637,11 +3656,6 @@ relational adjectives, such as "proud" (with arguments who and of what).
                                         <name>convexity</name>
                                         <description/>
                                         <rangeTypeName>uima.cas.Boolean</rangeTypeName>
-                                    </featureDescription>
-                                    <featureDescription>
-                                        <name>shift</name>
-                                        <description/>
-                                        <rangeTypeName>edu.northwestern.fsm.type.Measure</rangeTypeName>
                                     </featureDescription>
                                 </features>
                             </typeDescription>
@@ -5443,6 +5457,18 @@ relational adjectives, such as "proud" (with arguments who and of what).
                                 <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity</supertypeName>
                             </typeDescription>
                             <typeDescription>
+                                <name>edu.northwestern.fsm.type.MidlineShift</name>
+                                <description>Measure annotation</description>
+                                <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity</supertypeName>
+                                <features>
+                                    <featureDescription>
+                                        <name>distance</name>
+                                        <description/>
+                                        <rangeTypeName>edu.northwestern.fsm.type.Measure</rangeTypeName>
+                                    </featureDescription>
+                                </features>
+                            </typeDescription>
+                            <typeDescription>
                                 <name>edu.northwestern.fsm.type.SDH</name>
                                 <description>SDH annotation</description>
                                 <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity</supertypeName>
@@ -5461,11 +5487,6 @@ relational adjectives, such as "proud" (with arguments who and of what).
                                         <name>convexity</name>
                                         <description/>
                                         <rangeTypeName>uima.cas.Boolean</rangeTypeName>
-                                    </featureDescription>
-                                    <featureDescription>
-                                        <name>shift</name>
-                                        <description/>
-                                        <rangeTypeName>edu.northwestern.fsm.type.Measure</rangeTypeName>
                                     </featureDescription>
                                 </features>
                             </typeDescription>
@@ -7256,6 +7277,18 @@ relational adjectives, such as "proud" (with arguments who and of what).
                                 <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity</supertypeName>
                             </typeDescription>
                             <typeDescription>
+                                <name>edu.northwestern.fsm.type.MidlineShift</name>
+                                <description>Measure annotation</description>
+                                <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity</supertypeName>
+                                <features>
+                                    <featureDescription>
+                                        <name>distance</name>
+                                        <description/>
+                                        <rangeTypeName>edu.northwestern.fsm.type.Measure</rangeTypeName>
+                                    </featureDescription>
+                                </features>
+                            </typeDescription>
+                            <typeDescription>
                                 <name>edu.northwestern.fsm.type.SDH</name>
                                 <description>SDH annotation</description>
                                 <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity</supertypeName>
@@ -7274,11 +7307,6 @@ relational adjectives, such as "proud" (with arguments who and of what).
                                         <name>convexity</name>
                                         <description/>
                                         <rangeTypeName>uima.cas.Boolean</rangeTypeName>
-                                    </featureDescription>
-                                    <featureDescription>
-                                        <name>shift</name>
-                                        <description/>
-                                        <rangeTypeName>edu.northwestern.fsm.type.Measure</rangeTypeName>
                                     </featureDescription>
                                 </features>
                             </typeDescription>
@@ -9053,6 +9081,18 @@ relational adjectives, such as "proud" (with arguments who and of what).
                                 <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity</supertypeName>
                             </typeDescription>
                             <typeDescription>
+                                <name>edu.northwestern.fsm.type.MidlineShift</name>
+                                <description>Measure annotation</description>
+                                <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity</supertypeName>
+                                <features>
+                                    <featureDescription>
+                                        <name>distance</name>
+                                        <description/>
+                                        <rangeTypeName>edu.northwestern.fsm.type.Measure</rangeTypeName>
+                                    </featureDescription>
+                                </features>
+                            </typeDescription>
+                            <typeDescription>
                                 <name>edu.northwestern.fsm.type.SDH</name>
                                 <description>SDH annotation</description>
                                 <supertypeName>de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity</supertypeName>
@@ -9071,11 +9111,6 @@ relational adjectives, such as "proud" (with arguments who and of what).
                                         <name>convexity</name>
                                         <description/>
                                         <rangeTypeName>uima.cas.Boolean</rangeTypeName>
-                                    </featureDescription>
-                                    <featureDescription>
-                                        <name>shift</name>
-                                        <description/>
-                                        <rangeTypeName>edu.northwestern.fsm.type.Measure</rangeTypeName>
                                     </featureDescription>
                                 </features>
                             </typeDescription>

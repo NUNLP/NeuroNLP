@@ -17,6 +17,9 @@ class SDHConcept {
         return [cite:cite, cui:cui, tui:tui, codeSystem:codeSystem, code:code, tui:tui]
     }
 
+    // ----------------------------------------------------------------------------------------------------------------
+    // Values
+    // ----------------------------------------------------------------------------------------------------------------
     static final String CODING_SCHEME_SNOMED = 'SNOMED'
     static final String CODING_SCHEME_LOINC = 'LOINC'
     static final String CODING_SCHEME_UCUM = 'UCUM'
@@ -39,21 +42,20 @@ class SDHConcept {
     static final String TUI_PATHOLOGIC_FUNCTION = 'T046'
 
     // ----------------------------------------------------------------------------------------------------------------
-    // GENERAL ATTRIBUTES
+    // Attributes
     // ----------------------------------------------------------------------------------------------------------------
-    
     static final SDHConcept POSITIVE_VALUE = new SDHConcept(cite:'Positive', codeSystem:CODING_SCHEME_SNOMED, code:'10828004', cui:'C1446409', tui:TUI_QUALITATIVE_CONCEPT)
     static final SDHConcept NEGATIVE_VALUE = new SDHConcept(cite:'Negative', codeSystem:CODING_SCHEME_SNOMED, code:'260385009', cui:'C0205160', tui:TUI_QUALITATIVE_CONCEPT)
     static final SDHConcept POSSIBLE_VALUE = new SDHConcept(cite:'Possible', codeSystem:CODING_SCHEME_SNOMED, code:'371930009', cui:'C0332149', tui:TUI_QUALITATIVE_CONCEPT)
-    static final SDHConcept GRADE = new SDHConcept(cite:'Grade', codeSystem:CODING_SCHEME_SNOMED, code:'103421006', cui:'C0441800', tui:TUI_CLASSIFICAION)
-    static final SDHConcept PERCENTAGE = new SDHConcept(cite:'Percentage unit', codeSystem:CODING_SCHEME_SNOMED, code:'415067009', cui:'C1532336', tui:TUI_QUANTITATIVE_CONCEPT)
-
-    // ----------------------------------------------------------------------------------------------------------------
-    // CONCEPTS
-    // ----------------------------------------------------------------------------------------------------------------
-    static final SDHConcept SUBDURAL_HEMATOMA = new SDHConcept(cite:'Subdural_Hematoma', codeSystem:CODING_SCHEME_SNOMED, code:'95453001', cui:'C0018946', tui:TUI_PATHOLOGIC_FUNCTION)
     static final SDHConcept LEFT = new SDHConcept(cite:'Left', codeSystem:CODING_SCHEME_SNOMED, code:'7771000', cui:'C0450414', tui:TUI_SPATIAL_CONCEPT)
     static final SDHConcept RIGHT = new SDHConcept(cite:'Right', codeSystem:CODING_SCHEME_SNOMED, code:'24028007', cui:'C0450415', tui:TUI_SPATIAL_CONCEPT)
+    static final SDHConcept SMALL = new SDHConcept(cite:'Small', codeSystem:CODING_SCHEME_SNOMED, code:'255507004', cui:'C0700321', tui:TUI_QUANTITATIVE_CONCEPT)
+    static final SDHConcept LARGE = new SDHConcept(cite:'Large', codeSystem:CODING_SCHEME_SNOMED, code:'255509001', cui:'C0549177', tui:TUI_QUANTITATIVE_CONCEPT)
     static final SDHConcept MEASURE = new SDHConcept(cite:'Measure', codeSystem:CODING_SCHEME_UCUM, code:'', cui:'', tui:TUI_QUANTITATIVE_CONCEPT)
 
+    // ----------------------------------------------------------------------------------------------------------------
+    // Findings
+    // ----------------------------------------------------------------------------------------------------------------
+    static final SDHConcept SUBDURAL_HEMATOMA = new SDHConcept(cite:'Subdural_hematoma', codeSystem:CODING_SCHEME_SNOMED, code:'95453001', cui:'C0018946', tui:TUI_PATHOLOGIC_FUNCTION)
+    static final SDHConcept MIDLINE_SHIFT = new SDHConcept(cite:'Midline_shift', codeSystem:CODING_SCHEME_SNOMED, code:'299728009', cui:'C0576481', tui:TUI_FINDING)
 }

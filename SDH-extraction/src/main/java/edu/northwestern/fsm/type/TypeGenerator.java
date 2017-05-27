@@ -52,14 +52,17 @@ public class TypeGenerator {
             "Measure annotation",
             NamedEntity.class.getCanonicalName());
 
+        TypeDescription midlineShiftType = types.addType("edu.northwestern.fsm.type.MidlineShift",
+            "Measure annotation",
+            NamedEntity.class.getCanonicalName());
+        midlineShiftType.addFeature("distance", "", "edu.northwestern.fsm.type.Measure");
+
         TypeDescription sdhType = types.addType("edu.northwestern.fsm.type.SDH",
             "SDH annotation",
             NamedEntity.class.getCanonicalName());
         sdhType.addFeature("side", "", "edu.northwestern.fsm.type.Side");
         sdhType.addFeature("thickness", "", "edu.northwestern.fsm.type.Measure");
         sdhType.addFeature("convexity", "", "uima.cas.Boolean");
-        sdhType.addFeature("shift", "", "edu.northwestern.fsm.type.Measure");
-
 
         TypeDescription docType = types.addType("edu.northwestern.fsm.type.SDHSummary",
             "SDH summary",

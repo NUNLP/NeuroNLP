@@ -76,9 +76,9 @@ class SDHExtractionPipelineGenerator {
         engineDescription.toXML(writer)
         writer.close()
 
-        TypeSystemDescription typeSystemDescription = TypeSystemDescriptionFactory.createTypeSystemDescription()
-        writer = new PrintWriter(new File('src/main/resources/descriptors/SDHTypeSystem.xml'))
-        typeSystemDescription.toXML(writer)
-        writer.close()
+//        TypeSystemDescription typeSystemDescription = TypeSystemDescriptionFactory.createTypeSystemDescription()
+//        writer = new PrintWriter(new File('src/main/resources/descriptors/SDHTypeSystem.xml'))
+//        typeSystemDescription.toXML(writer)
+//        writer.close()
     }
 }

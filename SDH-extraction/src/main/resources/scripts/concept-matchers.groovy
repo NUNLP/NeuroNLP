@@ -1,6 +1,7 @@
 import clinicalnlp.pattern.AnnotationSequencer
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence
 import edu.northwestern.fsm.type.Measure
+import edu.northwestern.fsm.type.MidlineShift
 import edu.northwestern.fsm.type.SDH
 import edu.northwestern.fsm.type.Section
 import edu.northwestern.fsm.type.Side
@@ -21,6 +22,14 @@ createMentions(
     jcas:jcas,
     searchSet:sections,
     type:SDH,
+    longestMatch:true
+)
+
+createMentions(
+    patterns:midline$shift$patterns,
+    jcas:jcas,
+    searchSet:sections,
+    type:MidlineShift,
     longestMatch:true
 )
 
@@ -70,7 +79,7 @@ jcas.select(type:Sentence, filter:(contains(SDH))).each { Sentence sentence ->
     }
 
 
-    // Measure patterns
+    // SDH thickness patterns
 
     sequence = new AnnotationSequencer(sentence, [SDH, Side, Measure]).first()
     sdh$size$relation$2.matcher(sequence).each { Binding b ->
@@ -82,5 +91,19 @@ jcas.select(type:Sentence, filter:(contains(SDH))).each { Sentence sentence ->
         SDH sdh = b.getVariable('sdh')[0]
         Measure measure = b.getVariable('measure')[0]
         sdh.thickness = measure
+    }
+}
+
+jcas.select(type:Sentence, filter:(contains(MidlineShift))).each { Sentence sentence ->
+    def sequence = new AnnotationSequencer(sentence, [MidlineShift, Measure]).first()
+    midline$shift$size$relation$1.matcher(sequence).each { Binding b ->
+        MidlineShift shift = b.getVariable('shift')[0]
+        Measure measure = b.getVariable('measure')[0]
+        shift.distance = measure
+    }
+    midline$shift$size$relation$2.matcher(sequence).each { Binding b ->
+        MidlineShift shift = b.getVariable('shift')[0]
+        Measure measure = b.getVariable('measure')[0]
+        shift.distance = measure
     }
 }

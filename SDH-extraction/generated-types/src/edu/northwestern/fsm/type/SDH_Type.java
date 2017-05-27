@@ -1,5 +1,5 @@
 
-/* First created by JCasGen Fri May 26 16:27:41 CDT 2017 */
+/* First created by JCasGen Sat May 27 14:22:23 CDT 2017 */
 package edu.northwestern.fsm.type;
 
 import org.apache.uima.jcas.JCas;
@@ -11,7 +11,7 @@ import org.apache.uima.cas.Feature;
 import de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity_Type;
 
 /** SDH annotation
- * Updated by JCasGen Fri May 26 16:27:41 CDT 2017
+ * Updated by JCasGen Sat May 27 14:22:23 CDT 2017
  * @generated */
 public class SDH_Type extends NamedEntity_Type {
   /** @generated */
@@ -93,30 +93,6 @@ public class SDH_Type extends NamedEntity_Type {
     ll_cas.ll_setBooleanValue(addr, casFeatCode_convexity, v);}
     
   
- 
-  /** @generated */
-  final Feature casFeat_shift;
-  /** @generated */
-  final int     casFeatCode_shift;
-  /** @generated
-   * @param addr low level Feature Structure reference
-   * @return the feature value 
-   */ 
-  public int getShift(int addr) {
-        if (featOkTst && casFeat_shift == null)
-      jcas.throwFeatMissing("shift", "edu.northwestern.fsm.type.SDH");
-    return ll_cas.ll_getRefValue(addr, casFeatCode_shift);
-  }
-  /** @generated
-   * @param addr low level Feature Structure reference
-   * @param v value to set 
-   */    
-  public void setShift(int addr, int v) {
-        if (featOkTst && casFeat_shift == null)
-      jcas.throwFeatMissing("shift", "edu.northwestern.fsm.type.SDH");
-    ll_cas.ll_setRefValue(addr, casFeatCode_shift, v);}
-    
-  
 
 
 
@@ -140,10 +116,6 @@ public class SDH_Type extends NamedEntity_Type {
  
     casFeat_convexity = jcas.getRequiredFeatureDE(casType, "convexity", "uima.cas.Boolean", featOkTst);
     casFeatCode_convexity  = (null == casFeat_convexity) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_convexity).getCode();
-
- 
-    casFeat_shift = jcas.getRequiredFeatureDE(casType, "shift", "edu.northwestern.fsm.type.Measure", featOkTst);
-    casFeatCode_shift  = (null == casFeat_shift) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_shift).getCode();
 
   }
 }

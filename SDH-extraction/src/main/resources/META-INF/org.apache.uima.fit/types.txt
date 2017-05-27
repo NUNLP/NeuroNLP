@@ -1,1 +1,1 @@
-classpath*:descriptors/SDHTypeSystem.xml
+classpath*:edu/northwestern/fsm/type/sdh-types.xml

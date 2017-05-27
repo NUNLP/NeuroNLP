@@ -3749,7 +3749,7 @@ assumed.</description>
                         <nameValuePair>
                             <name>deleteCover</name>
                             <value>
-                                <boolean>false</boolean>
+                                <boolean>true</boolean>
                             </value>
                         </nameValuePair>
                         <nameValuePair>

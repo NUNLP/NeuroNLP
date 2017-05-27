@@ -14,11 +14,12 @@ import static edu.northwestern.fsm.domain.SDHConcept.*
 //---------------------------------------------------------------------------------------------------------------------
 
 def subdural$hemotoma$1 = '''
-(extra-?axial|subdural)(/subarachnoid)?(\\s+hyperdense)?\\s+(hematomas?|hemorrhages?|layerings?|collections?|blood|overlying)
+(convexity|extra-?axial|subdural)(/subarachnoid)?(\\s+hyperdense)?(\\s+tentorial)?
+\\s+(hematomas?|hemorrhages?|layerings?|collections?|blood|overlying|lesions?)
 '''
 
 def subdural$hemotoma$2 = '''
-(subdural)|(the\\s+hematoma)
+(subdural)|(the\\s+hematoma)|(this\\s+hematoma)|(hyperdensit(y|ies))|(collections?)
 '''
 
 def left$side = '''
@@ -63,11 +64,11 @@ AnnotationRegex sdh$size$relation$1 = new AnnotationRegex((AnnotationPattern)
 )
 
 AnnotationRegex sdh$size$relation$2 = new AnnotationRegex((AnnotationPattern)
-    $N('sdh', $A(SDH)) & $A(Side)(0,1) & $N('measure', $A(Measure))
+    $N('sdh', $A(SDH)) & $A(Side)(0,2) & $N('measure', $A(Measure))
 )
 
 AnnotationRegex sdh$size$relation$3 = new AnnotationRegex((AnnotationPattern)
-    $N('measure', $A(Measure)) & $A(Side)(0,1) & $N('sdh', $A(SDH))
+    $N('measure', $A(Measure)) & $A(Side)(0,2) & $N('sdh', $A(SDH))
 )
 
 // ---------------------------------------------------------------------------------------------------------------------

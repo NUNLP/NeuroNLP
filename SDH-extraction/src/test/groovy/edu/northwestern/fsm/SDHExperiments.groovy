@@ -77,6 +77,8 @@ class SDHExperiments {
                 println "${metaData.documentTitle}: predicted = ${metaData.side}, actual = ${dd.side}"
             }
         }
+        println "Num correct: ${numCorrect}"
+        println "Total count: ${totalCount}"
         println "Accuracy = ${numCorrect/totalCount}"
     }
 

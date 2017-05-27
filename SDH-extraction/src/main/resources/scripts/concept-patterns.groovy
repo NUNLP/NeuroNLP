@@ -33,12 +33,21 @@ def right$side = '''
 (right)
 '''
 
+def measure = '''
+/(?i)\\d+(\\.\\d+)?(cm|mm)/
+'''
+
 sdh$patterns = [
     (~"(?ixs)\\b(?:${subdural$hemotoma$1})\\b")   : SUBDURAL_HEMATOMA.map,
     (~"(?ixs)\\b(?:${subdural$hemotoma$2})\\b")   : SUBDURAL_HEMATOMA.map
 ]
 
 side$patterns = [
+    (~"(?ixs)\\b(?:${left$side})\\b")           : LEFT.map,
+    (~"(?ixs)\\b(?:${right$side})\\b")          : RIGHT.map
+]
+
+measure$patterns = [
     (~"(?ixs)\\b(?:${left$side})\\b")           : LEFT.map,
     (~"(?ixs)\\b(?:${right$side})\\b")          : RIGHT.map
 ]

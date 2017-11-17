@@ -90,8 +90,6 @@ project(':SDH-extraction') {
 
         compile group: "org.codehaus.groovy", name: "groovy-all", version: "2.4.11"
         compile 'org.apache.uima:uimaj-tools:2.10.0'
-//        compile 'org.apache.uima:uima-as-parent:2.9.0'
-//        compile 'org.apache.uima:aggregate-uima-as:2.9.0'
 
         compile "clinicalnlp:groovy-dsl:2.0-SNAPSHOT"
         compile "clinicalnlp:annotation-pattern:2.0-SNAPSHOT"

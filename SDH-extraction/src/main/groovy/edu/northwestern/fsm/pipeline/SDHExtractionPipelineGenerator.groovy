@@ -22,7 +22,7 @@ class SDHExtractionPipelineGenerator {
     private SDHExtractionPipelineGenerator() {}
 
     /**
-     * Breast pathology concept extraction pipeline
+     * SDH concept extraction pipeline
      * @return
      */
     static AggregateBuilder createSDHPipeline() {

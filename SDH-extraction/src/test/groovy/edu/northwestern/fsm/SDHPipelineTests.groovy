@@ -1,6 +1,5 @@
 package edu.northwestern.fsm
 
-import de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.NUM
 import edu.northwestern.fsm.pipeline.SDHExtractionPipelineGenerator
 import edu.northwestern.fsm.type.Section
 import groovy.util.logging.Log4j
